@@ -1,0 +1,6 @@
+Alcañiz, Paseo Andrade número 2
+Huesca, Paseo Sagasta número 4
+Zaragoza, Paseo Independencia numero 78
+Madrid, Paseo de la Castellana numero 185
+Barcelona, Avenida Corts Catalanes numero 74
+Valencia, Avenida de la Constitucion numero 35
