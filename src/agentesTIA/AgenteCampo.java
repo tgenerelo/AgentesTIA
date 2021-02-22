@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class AgenteCampo extends Agente {
 	
-	private String[] vPisos;
+	protected String[] vPisos;
 
 	public AgenteCampo(String nombre, int edad, String direccion, float salario, String[] vPisos) {
 		super(nombre, edad, direccion, salario);
