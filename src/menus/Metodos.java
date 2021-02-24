@@ -54,7 +54,7 @@ public class Metodos {
 		
 				String dato;
 				
-				if (ruta.equalsIgnoreCase("pisos.txt")) {
+				if (ruta.equalsIgnoreCase("ficheros/pisos.txt")) {
 					System.out.println("Dime el piso para guardar");
 				}else {
 					System.out.println("Dime el arma para guardar");

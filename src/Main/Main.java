@@ -30,13 +30,13 @@ public class Main {
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-
+				Metodos.nuevaArmasoPiso("ficheros/pisos.txt");
 				break;
 			case 4:
-				Metodos.nuevaArmasoPiso("pisos.txt");
+				Metodos.nuevaArmasoPiso("ficheros/armas.txt");
 				break;
 			case 5:
-				Metodos.nuevaArmasoPiso("armas.txt");
+				
 				break;
 			case 6:
 
