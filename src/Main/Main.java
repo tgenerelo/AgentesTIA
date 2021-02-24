@@ -34,10 +34,10 @@ public class Main {
 
 				break;
 			case 4:
-				menus.Menus.nuevaArmas(IODatos.cargarDatosTexto("armas.txt"));
+				Menus.nuevaArmasoPiso("pisos.txt");
 				break;
 			case 5:
-
+				Menus.nuevaArmasoPiso("armas.txt");
 				break;
 			case 6:
 
