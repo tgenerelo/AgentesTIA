@@ -27,17 +27,16 @@ public class Main {
 				break;
 
 			case 2:
-				menus.Menus.salarioAgentes(vAgentes);
-
+				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
 
 				break;
 			case 4:
-				Menus.nuevaArmasoPiso("pisos.txt");
+				Metodos.nuevaArmasoPiso("pisos.txt");
 				break;
 			case 5:
-				Menus.nuevaArmasoPiso("armas.txt");
+				Metodos.nuevaArmasoPiso("armas.txt");
 				break;
 			case 6:
 
