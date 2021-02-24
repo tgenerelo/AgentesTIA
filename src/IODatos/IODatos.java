@@ -1,6 +1,8 @@
-package agentesTIA;
+package IODatos;
 
 import java.util.Scanner;
+
+import agentesTIA.Agente;
 
 public class IODatos {
 
