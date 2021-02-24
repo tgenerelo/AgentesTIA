@@ -20,7 +20,7 @@ public class Menus {
 			pintarMenu(titulo, vOpciones);
 			
 			do {
-				System.out.print("Introduce una opción: > ");
+				System.out.print("  Introduce una opción: > ");
 				
 				try {
 					userInput=leerInput.nextInt();
@@ -39,7 +39,7 @@ public class Menus {
 					
 				
 				if (error==true)
-					System.out.println("Opción no válida. Inténtalo de nuevo.\n");
+					System.out.println("  Opción no válida. Inténtalo de nuevo.\n");
 				
 			} while (error==true);
 

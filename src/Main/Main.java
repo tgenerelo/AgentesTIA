@@ -1,4 +1,4 @@
-package agentesTIA;
+package Main;
 
 import menus.Menus;
 
