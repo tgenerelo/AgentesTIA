@@ -2,8 +2,10 @@ package IODatos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 import agentesTIA.Agente;
@@ -56,11 +58,41 @@ public class IODatos {
 		return vItems;
 	}
 	
-
 	
-
-	
-
-	
+	public static void encriptar(Agente vAgente[]) {
+		
+		File f =new File("ficheros/info.dat");
+		
+		if (!f.exists()){
+			try {
+				f.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		FileOutputStream fo = null;
+		ObjectOutputStream escribir = null;
+						
+		
+		try {
+			fo = new FileOutputStream(f);
+			escribir = new ObjectOutputStream(fo);
+			
+			 for (int i=0;i<vAgente.length;i++) {
+				 if(vAgente[i]!=null) {
+					 escribir.writeObject(vAgente);
+				 }
+			 }
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+	}
 	
 }
