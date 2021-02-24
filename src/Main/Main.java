@@ -1,4 +1,6 @@
-package agentesTIA;
+package Main;
+
+import agentesTIA.Agente;
 
 public class Main {
 
