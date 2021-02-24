@@ -42,6 +42,8 @@ public class Menus {
 					System.out.println("  Opción no válida. Inténtalo de nuevo.\n");
 				
 			} while (error==true);
+			
+			System.out.println();
 
 		return userInput;
 	}

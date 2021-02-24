@@ -11,8 +11,8 @@ public class Main {
 		
 		Agente vAgente[]=new Agente [20];
 		
-		vAgente[0] = new agentesTIA.A007("Ag007", 30, "Calle Falsa 123", 2000f, 3);
-		vAgente[1] = new agentesTIA.AEspionaje("AgEsp", 40, "Calle No Tan Falsa 123", 1800f);
+		vAgente[0] = new agentesTIA.A007("James Bont", 30, "Calle Falsa 123", 2000f, 3);
+		vAgente[1] = new agentesTIA.AEspionaje("Filemón Pi", 40, "Calle No Tan Falsa 123", 1800f);
 		vAgente[2] = new agentesTIA.ASuperintendente("El Súper", 56, "Calle Supervía 1", 2200, 25);
 
 		int userInput = 0;

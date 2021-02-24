@@ -31,9 +31,23 @@ public final class A007 extends Agente{
 		this.muertes = muertes;
 	}
 
+	private String todasArmas() {
+		String todasArmas = "";
+
+		for (int i = 0; i < vArmas.length; i++) {
+			if (vArmas[i] != null) {
+				todasArmas += vArmas[i];
+			}
+			if (i < vArmas.length-1 && vArmas[i+1]!=null)
+				todasArmas += ", ";
+		}
+		
+		return todasArmas;
+	}
+	
 	@Override
 	public String toString() {
-		return "A_007 [armas=" + Arrays.toString(vArmas) + ", muertes=" + muertes + "]";
+		return super.toString() + "\nArmas: " + todasArmas();
 	}
 	
 
