@@ -1,7 +1,9 @@
 package agentesTIA;
 
-public abstract class Agente {
+import java.io.Serializable;
 
+public abstract class Agente implements Serializable{
+	
 	protected String nombre;
 	protected int edad;
 	protected String direccion;
