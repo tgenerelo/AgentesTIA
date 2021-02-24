@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class IODatos {
 
-	
-	
-	public static void salario_agentes(Agente vAgente[]) {
+
+
+	public static void salarioAgentes(Agente vAgente[]) {
 		
 		System.out.println("Introduce el salario minimo");
 		Scanner leer=new Scanner(System.in);
@@ -18,8 +18,10 @@ public class IODatos {
 				System.out.println(vAgente[i]);
 			}
 		}
-		
 	}
+	
+	
+
 	
 	
 }

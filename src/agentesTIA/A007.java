@@ -2,15 +2,14 @@ package agentesTIA;
 
 import java.util.Arrays;
 
-public final class A_007 extends AgenteCampo{
+public final class A007 extends Agente{
 
 	private String [] armas;
 	private int muertes;
 	
-	public A_007(String nombre, int edad, String direccion, float salario, String[] vPisos, String[] armas,
-			int muertes) {
-		super(nombre, edad, direccion, salario, vPisos);
-		this.armas = armas;
+	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
+		super(nombre, edad, direccion, salario);
+		//this.armas = IODatos.cargarDatosTexto("Armas.txt");
 		this.muertes = muertes;
 	}
 
