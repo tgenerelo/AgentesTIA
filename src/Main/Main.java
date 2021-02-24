@@ -12,6 +12,7 @@ public class Main {
 		Agente vAgente[]=new Agente [20];
 
 		int userInput = 0;
+		Agente[] = {};
 
 		do {
 			userInput = Menus.mostrarMenu();
