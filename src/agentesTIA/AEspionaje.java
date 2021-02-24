@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 import IODatos.IODatos;
 
-public final class AEspionaje extends Agente{
+public final class AEspionaje extends Agente {
 
-	private String [] vPisos;
+	private String[] vPisos;
 
 	public AEspionaje(String nombre, int edad, String direccion, float salario) {
 		super(nombre, edad, direccion, salario);
@@ -21,15 +21,25 @@ public final class AEspionaje extends Agente{
 		this.vPisos = pisos;
 	}
 
-	@Override
-	public String toString() {
-		return "aEspionaje [pisos=" + Arrays.toString(vPisos) + "]";
+	private String todosPisos() {
+		String todosPisos = "";
+
+		for (int i = 0; i < vPisos.length; i++) {
+			if (vPisos[i] != null) {
+				todosPisos += vPisos[i];
+			}
+			if (i < vPisos.length-1 && vPisos[i+1]!=null)
+				todosPisos += ", ";
+		}
+		
+		return todosPisos;
+
 	}
 
+	@Override
+	public String toString() {
+		String todosPisos=todosPisos();
+		return super.toString() + "\nPisos: " + todosPisos;
+	}
 
-	
-	
-	
-	
-	
 }

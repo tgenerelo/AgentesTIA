@@ -22,7 +22,10 @@ public class Main {
 
 			switch (userInput) {
 			case 1:
-
+				for (Agente agente : vAgente) {
+					if (agente!=null)
+						System.out.println(agente.toString() + "\n");
+				}
 				break;
 
 			case 2:
