@@ -10,25 +10,10 @@ import agentesTIA.Agente;
 
 public class IODatos {
 
-
-
-	public static void salarioAgentes(Agente vAgente[]) {
-		
-		System.out.println("Introduce el salario minimo");
-		Scanner leer=new Scanner(System.in);
-		int cantidad =leer.nextInt();
-		
-		
-		for(int i=0; i<vAgente.length;i++) {
-			if((vAgente[i]!=null) && (cantidad<=vAgente[i].getSalario())){
-				System.out.println(vAgente[i]);
-			}
-		}
-	}
-
+	
 	public static String[] cargarDatosTexto(String nombreFichero) {
 	
-		String vPisos[]=new String [20];
+		String vItems[]=new String [20];
 		int cont = 0;
 		String ruta ="ficheros/" + nombreFichero;
 		
@@ -53,7 +38,7 @@ public class IODatos {
 				leer=new Scanner(fr);
 				 
 				while (leer.hasNext()) {
-					vPisos[cont]=leer.nextLine();
+					vItems[cont]=leer.nextLine();
 					cont++;
 				}
 				
@@ -68,12 +53,12 @@ public class IODatos {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
 			}
-			
-		return vPisos;
+		return vItems;
 	}
 	
+
+
 	
 
 	

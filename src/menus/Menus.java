@@ -132,5 +132,38 @@ public class Menus {
 		return ancho;
 
 	}
+	
+	
+	public static void nuevaArmas (String vItems[]) {
+		
+		Scanner leer=new Scanner(System.in);
+		
+		for (int i=0; i<vItems.length;i++) {
+			if(vItems[i]!=null) {
+				System.out.println("Escribe el nombre de la nueva arma");
+				String nombre=leer.nextLine();
+				nombre=vItems[i];
+				break;
+			}
+		}
+	}
+
+	
+public static void salarioAgentes(Agente vAgente[]) {
+		
+		System.out.println("Introduce el salario minimo");
+		Scanner leer=new Scanner(System.in);
+		int cantidad =leer.nextInt();
+		
+		
+		for(int i=0; i<vAgente.length;i++) {
+			if((vAgente[i]!=null) && (cantidad<=vAgente[i].getSalario())){
+				System.out.println(vAgente[i]);
+			}
+		}
+	}
+	
+	
+	
 
 }
