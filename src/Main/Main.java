@@ -22,17 +22,17 @@ public class Main {
 				break;
 
 			case 2:
-				IODatos.salarioAgentes(vAgente);
+				//IODatos.salarioAgentes(vAgente);
 
 				break;
 			case 3:
 
 				break;
 			case 4:
-
+				Menus.nuevaArmasoPiso("pisos.txt");
 				break;
 			case 5:
-
+				Menus.nuevaArmasoPiso("armas.txt");
 				break;
 			case 6:
 

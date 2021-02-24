@@ -19,7 +19,6 @@ public class IODatos {
 		
 		File f = new File(ruta);
 		  
-		
 		if(!f.exists()) {
 			  
 			 try {
@@ -58,6 +57,7 @@ public class IODatos {
 	}
 	
 
+	
 
 	
 
