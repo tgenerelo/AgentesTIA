@@ -21,7 +21,8 @@ public class ASuperintendente extends Agente {
 	
 	@Override
 	public String toString() {
-		return super.toString() + "Años de mandato: " + anosMandato;
+		String decoracion = "═════════════════════════════";
+		return decoracion + "\n" + super.toString() + "\nAños de mandato: " + anosMandato + "\n" + decoracion;
 	}
 	
 	

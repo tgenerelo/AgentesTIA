@@ -10,9 +10,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Agente vAgente[]=new Agente [20];
+		
+		vAgente[0] = new agentesTIA.A007("Ag007", 30, "Calle Falsa 123", 2000f, 3);
+		vAgente[1] = new agentesTIA.AEspionaje("AgEsp", 40, "Calle No Tan Falsa 123", 1800f);
+		vAgente[2] = new agentesTIA.ASuperintendente("El Súper", 56, "Calle Supervía 1", 2200, 25);
 
 		int userInput = 0;
-		Agente[] = {};
 
 		do {
 			userInput = Menus.mostrarMenu();
@@ -23,14 +26,14 @@ public class Main {
 				break;
 
 			case 2:
-				IODatos.salarioAgentes(vAgente);
+				menus.Menus.salarioAgentes(vAgente);
 
 				break;
 			case 3:
 
 				break;
 			case 4:
-
+				menus.Menus.nuevaArmas(IODatos.cargarDatosTexto("armas.txt"));
 				break;
 			case 5:
 
