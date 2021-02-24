@@ -42,6 +42,8 @@ public class Menus {
 					System.out.println("  Opción no válida. Inténtalo de nuevo.\n");
 				
 			} while (error==true);
+			
+			System.out.println();
 
 		return userInput;
 	}
@@ -139,7 +141,7 @@ public class Menus {
 		Scanner leer=new Scanner(System.in);
 		
 		for (int i=0; i<vItems.length;i++) {
-			if(vItems[i]!=null) {
+			if(vItems[i]==null) {
 				System.out.println("Escribe el nombre de la nueva arma");
 				String nombre=leer.nextLine();
 				nombre=vItems[i];
