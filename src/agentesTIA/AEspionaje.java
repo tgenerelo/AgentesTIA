@@ -2,11 +2,11 @@ package agentesTIA;
 
 import java.util.Arrays;
 
-public final class aEspionaje extends Agente{
+public final class AEspionaje extends Agente{
 
 	private String [] vPisos;
 
-	public aEspionaje(String nombre, int edad, String direccion, float salario, String[] pisos) {
+	public AEspionaje(String nombre, int edad, String direccion, float salario, String[] pisos) {
 		super(nombre, edad, direccion, salario);
 		this.vPisos = pisos;
 	}

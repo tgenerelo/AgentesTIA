@@ -1,10 +1,15 @@
 package Main;
 
+import IODatos.IODatos;
+import agentesTIA.Agente;
 import menus.Menus;
 
 public class Main {
 
+
 	public static void main(String[] args) {
+		
+		Agente vAgente[]=new Agente [20];
 
 		int userInput = 0;
 
@@ -17,6 +22,7 @@ public class Main {
 				break;
 
 			case 2:
+				IODatos.salarioAgentes(vAgente);
 
 				break;
 			case 3:
