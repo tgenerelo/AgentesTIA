@@ -11,7 +11,7 @@ public final class A007 extends Agente{
 	
 	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
 		super(nombre, edad, direccion, salario);
-		this.vArmas = IODatos.cargarDatosTexto("ficheros/armas.txt");
+		this.vArmas = IODatos.cargarDatosTexto("armas.txt");
 		this.muertes = muertes;
 	}
 

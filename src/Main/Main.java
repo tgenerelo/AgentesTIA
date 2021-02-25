@@ -1,6 +1,5 @@
 package Main;
 
-import IODatos.IODatos;
 import agentesTIA.Agente;
 import menus.Menus;
 import menus.Metodos;
@@ -30,10 +29,10 @@ public class Main {
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-				Metodos.nuevaArmasoPiso("ficheros/pisos.txt");
+				Metodos.nuevaArmasoPiso("pisos.txt");
 				break;
 			case 4:
-				Metodos.nuevaArmasoPiso("ficheros/armas.txt");
+				Metodos.nuevaArmasoPiso("armas.txt");
 				break;
 			case 5:
 				
