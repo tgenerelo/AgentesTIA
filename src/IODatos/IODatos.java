@@ -1,17 +1,18 @@
 package IODatos;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 import agentesTIA.Agente;
 
 public class IODatos {
-
 	
 	public static String[] cargarDatosTexto(String nombreFichero) {
 	
@@ -61,7 +62,7 @@ public class IODatos {
 	
 	public static void encriptar(Agente vAgente[]) {
 		
-		File f =new File("ficheros/info.dat");
+		File f =new File("ficheros/Info.dat");
 		
 		if (!f.exists()){
 			try {
@@ -92,6 +93,52 @@ public class IODatos {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
+		}
+	}
+	
+	public static Agente[] cargarAgentes(String ruta) {
+		
+		File f = new File("ficheros/" + ruta);
+		Agente[] vAgentes = new Agente[20];
+		int cont = 0;
+		
+		if (f.exists()) {
+			
+			try (FileInputStream fi = new FileInputStream(f);
+					ObjectInputStream leer = new ObjectInputStream(fi)) {
+
+				while (true) {
+					vAgentes[cont] = (Agente) leer.readObject();
+					cont++;
+				}
+				
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		return vAgentes;
+	}
+	
+	public static void guardarAgentes(String ruta, Agente[] vAgentes) {
+		File f = new File("ficheros/" + ruta);
+		
+		if (!f.exists())
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				System.out.println("Hubo un error durante la creación del fichero " + ruta + ".");
+			}
+		
+		try (FileOutputStream fo = new FileOutputStream(f);
+				ObjectOutputStream escribir = new ObjectOutputStream(fo)) {
+			
+			for (Agente agente : vAgentes) {
+				escribir.writeObject(agente);
+			}
+		
+		} catch (IOException e) {
+			
 		}
 	}
 	
