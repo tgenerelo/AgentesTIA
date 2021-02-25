@@ -1,7 +1,5 @@
 package agentesTIA;
 
-import java.util.Arrays;
-
 import IODatos.IODatos;
 
 public final class A007 extends Agente{
@@ -11,7 +9,7 @@ public final class A007 extends Agente{
 	
 	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
 		super(nombre, edad, direccion, salario);
-		this.vArmas = IODatos.cargarDatosTexto("ficheros/armas.txt");
+		this.vArmas = IODatos.cargarDatosTexto("armas.txt");
 		this.muertes = muertes;
 	}
 
@@ -31,9 +29,23 @@ public final class A007 extends Agente{
 		this.muertes = muertes;
 	}
 
+	private String todasArmas() {
+		String todasArmas = "";
+
+		for (int i = 0; i < vArmas.length; i++) {
+			if (vArmas[i] != null) {
+				todasArmas += vArmas[i];
+			}
+			if (i < vArmas.length-1 && vArmas[i+1]!=null)
+				todasArmas += ", ";
+		}
+		
+		return todasArmas;
+	}
+	
 	@Override
 	public String toString() {
-		return "A_007 [armas=" + Arrays.toString(vArmas) + ", muertes=" + muertes + "]";
+		return super.toString() + "\nArmas: " + todasArmas();
 	}
 	
 

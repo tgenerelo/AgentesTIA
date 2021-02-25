@@ -3,13 +3,17 @@ package Main;
 import IODatos.IODatos;
 import agentesTIA.Agente;
 import menus.Menus;
+import menus.Metodos;
 
 public class Main {
 
-
 	public static void main(String[] args) {
 		
-		Agente vAgente[]=new Agente [20];
+		String rutaAgentes = "Agentes.dat";
+		String rutaPisos = "Pisos.txt";
+		String rutaArmas = "Armas.txt";
+		
+		Agente vAgentes[] = IODatos.cargarAgentes(rutaAgentes);
 
 		int userInput = 0;
 
@@ -18,21 +22,19 @@ public class Main {
 
 			switch (userInput) {
 			case 1:
-
+				Metodos.mostrarAgentes(vAgentes);
 				break;
-
 			case 2:
-				//IODatos.salarioAgentes(vAgente);
-
+				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-
+				Metodos.nuevaArmasoPiso(rutaPisos);
 				break;
 			case 4:
-				Menus.nuevaArmasoPiso("pisos.txt");
+				Metodos.nuevaArmasoPiso(rutaArmas);
 				break;
 			case 5:
-				Menus.nuevaArmasoPiso("armas.txt");
+				vAgentes = Menus.nuevoAgente(vAgentes, rutaAgentes);
 				break;
 			case 6:
 
@@ -40,12 +42,11 @@ public class Main {
 			case 7:
 
 				break;
-			case 8:
-
-				break;
 			}
 		} while (userInput != 8);
 
+		System.out.println("  El programa se cerrará.");
+		
 	}
 
 }

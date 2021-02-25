@@ -8,8 +8,7 @@ public abstract class Agente implements Serializable{
 	protected int edad;
 	protected String direccion;
 	protected float salario;
-	
-	
+
 	public Agente(String nombre, int edad, String direccion, float salario) {
 		this.nombre = nombre;
 		this.edad = edad;
@@ -51,17 +50,8 @@ public abstract class Agente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Agente [nombre=" + nombre + ", edad=" + edad + ", direccion=" + direccion + ", salario=" + salario
-				+ "]";
+		return "Nombre del agente: " + nombre + "\nEdad: " + edad + "\nDirección: " + direccion + "\nSalario: "
+				+ salario + " €";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
