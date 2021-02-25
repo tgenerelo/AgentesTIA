@@ -1,7 +1,5 @@
 package agentesTIA;
 
-import java.util.Arrays;
-
 import IODatos.IODatos;
 
 public final class A007 extends Agente{

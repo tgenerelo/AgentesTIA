@@ -1,19 +1,19 @@
 package Main;
 
+import IODatos.IODatos;
 import agentesTIA.Agente;
 import menus.Menus;
 import menus.Metodos;
 
 public class Main {
 
-
 	public static void main(String[] args) {
 		
-		Agente vAgentes[]=new Agente [20];
+		String rutaAgentes = "Agentes.dat";
+		String rutaPisos = "Pisos.txt";
+		String rutaArmas = "Armas.txt";
 		
-		vAgentes[0] = new agentesTIA.A007("James Bont", 30, "Calle Falsa 123", 2000f, 3);
-		vAgentes[1] = new agentesTIA.AEspionaje("Filemón Pi", 40, "Calle No Tan Falsa 123", 1800f);
-		vAgentes[2] = new agentesTIA.ASuperintendente("El Súper", 56, "Calle Supervía 1", 2200, 25);
+		Agente vAgentes[] = IODatos.cargarAgentes(rutaAgentes);
 
 		int userInput = 0;
 
@@ -24,18 +24,17 @@ public class Main {
 			case 1:
 				Metodos.mostrarAgentes(vAgentes);
 				break;
-
 			case 2:
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-				Metodos.nuevaArmasoPiso("pisos.txt");
+				Metodos.nuevaArmasoPiso(rutaPisos);
 				break;
 			case 4:
-				Metodos.nuevaArmasoPiso("armas.txt");
+				Metodos.nuevaArmasoPiso(rutaArmas);
 				break;
 			case 5:
-				
+				vAgentes = Menus.nuevoAgente(vAgentes, rutaAgentes);
 				break;
 			case 6:
 
@@ -43,12 +42,11 @@ public class Main {
 			case 7:
 
 				break;
-			case 8:
-
-				break;
 			}
 		} while (userInput != 8);
 
+		System.out.println("  El programa se cerrará.");
+		
 	}
 
 }
