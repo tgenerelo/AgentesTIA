@@ -34,7 +34,7 @@ public class Main {
 				Metodos.nuevaArmasoPiso(rutaArmas);
 				break;
 			case 5:
-				vAgentes = Menus.nuevoAgente(vAgentes, rutaAgentes);
+				vAgentes = Metodos.nuevoAgente(vAgentes, rutaAgentes);
 				break;
 			case 6:
 
