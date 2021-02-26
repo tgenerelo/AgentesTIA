@@ -59,7 +59,7 @@ public class IODatos {
 		return vItems;
 	}
 
-	public static String encriptar(Agente vAgente[]) {
+	public static String encriptar(Agente vAgentes[], String vArmas[], String vPisos[]) {
 
 		String info = "ficheros/info.dat";
 		File f = new File(info);
@@ -80,9 +80,11 @@ public class IODatos {
 			fo = new FileOutputStream(f);
 			escribir = new ObjectOutputStream(fo);
 
-			for (int i = 0; i < vAgente.length; i++) {
-				if (vAgente[i] != null) {
-					escribir.writeObject(vAgente);
+			for (int i = 0; i < vAgentes.length; i++) {
+				if (vAgentes[i] != null) {
+					escribir.writeObject(vAgentes);
+					escribir.writeObject(vArmas);
+					escribir.writeObject(vPisos);
 				}
 			}
 
@@ -96,9 +98,7 @@ public class IODatos {
 		return info;
 	}
 
-	public static void desencriptar(String info) {
-
-		Agente vAgen[] = new Agente[20];
+	public static void desencriptar(String info, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
 
 		File f = new File(info);
 		if (!f.exists()) {
@@ -117,7 +117,9 @@ public class IODatos {
 			fi = new FileInputStream(info);
 			leer = new ObjectInputStream(fi);
 
-			vAgen = (Agente[]) leer.readObject();
+			vAgentes = (Agente[]) leer.readObject();
+			vArmas = (String[]) leer.readObject();
+			vPisos = (String[]) leer.readObject();
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -130,12 +132,12 @@ public class IODatos {
 			e.printStackTrace();
 		}
 
-		for (Agente a : vAgen) {
-			if (a != null) {
-				System.out.println(a);
-			}
-
-		}
+//		for (Agente a : vAgentes) {
+//			if (a != null) {
+//				System.out.println(a);
+//			}
+//
+//		}
 
 	}
 
