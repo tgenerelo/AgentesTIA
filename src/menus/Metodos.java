@@ -37,6 +37,7 @@ public class Metodos {
 	public static void nuevaArmasoPiso (String ruta) { 		//  opcion 3 y 4
 		
 		Scanner leer=new Scanner(System.in);
+		ruta = "ficheros/" + ruta;
 		
 		File f = new File(ruta);
 		
@@ -54,13 +55,13 @@ public class Metodos {
 		
 				String dato;
 				
-				if (ruta.equalsIgnoreCase("ficheros/pisos.txt")) {
+				if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
 					System.out.println("Dime el piso para guardar");
 				}else {
 					System.out.println("Dime el arma para guardar");
 				}
 				dato = leer.nextLine();
-				pw.println(dato);
+				pw.print("\n"+ dato);
 				
 				
 				} catch (IOException e) {
