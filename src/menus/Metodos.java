@@ -79,21 +79,8 @@ public class Metodos {
 		}	
 	
 
-	private static int encontrarHuecoVector(Agente[] vAgentes) {
-
-		for (int i = 0; i < vAgentes.length; i++) {
-			if (vAgentes[i] == null) {
-				return i;
-			}
-		}
-
-		return -1;
-	}
-	
-	
-	
 	public static Agente[] nuevoAgente(Agente[] vAgentes, String ruta) {
-
+	
 		Scanner leerInput = new Scanner(System.in);
 		int userInputInt = 0, pos = 0;
 		boolean error = false;
@@ -101,18 +88,18 @@ public class Metodos {
 		int edadAgente = 0;
 		float salarioAgente = 0f;
 		String vTiposAgente[] = { "Agente de espionaje", "Agente 007", "Superintendente" };
-
+	
 		System.out.println("Especifica el tipo de agente que quieres dar de alta:");
-
+	
 		for (int i = 0; i < vTiposAgente.length; i++) {
 			System.out.println((i + 1) + ". " + vTiposAgente[i]);
 		}
-
+	
 		do {
 			error = false;
-
+	
 			System.out.print("\nTipo de agente: > ");
-
+	
 			try {
 				userInputInt = leerInput.nextInt();
 			} catch (InputMismatchException e) {
@@ -120,27 +107,27 @@ public class Metodos {
 				leerInput = new Scanner(System.in);
 				System.out.println("Opción no válida. Inténtalo de nuevo.\n");
 			}
-
+	
 			if (userInputInt < 1 || userInputInt > vTiposAgente.length) {
 				error = true;
 			} else {
 				error = false;
 			}
-
+	
 		} while (error == true);
-
+	
 		System.out.println();
-
+	
 		Menus.pintarSubmenu(vTiposAgente[userInputInt - 1]);
-
+	
 		switch (userInputInt) {
-
+	
 		case 1:
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce el nombre del nuevo agente: > ");
 			nombreAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce la edad del nuevo agente: > ");
@@ -155,11 +142,11 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce la dirección del nuevo agente: > ");
 			dirAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce el salario del nuevo agente: > ");
@@ -174,9 +161,9 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			pos = encontrarHuecoVector(vAgentes);
-
+	
 			if (pos != -1) {
 				vAgentes[pos] = new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente);
 			} else {
@@ -184,15 +171,15 @@ public class Metodos {
 			}
 			
 			break;
-
+	
 		case 2:
-
+	
 			int muertesAgente = 0;
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce el nombre del nuevo agente: > ");
 			nombreAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce la edad del nuevo agente: > ");
@@ -207,11 +194,11 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce la dirección del nuevo agente: > ");
 			dirAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce el salario del nuevo agente: > ");
@@ -226,7 +213,7 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce el número de bajas del nuevo agente: > ");
@@ -241,24 +228,24 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			pos = encontrarHuecoVector(vAgentes);
-
+	
 			if (pos != -1) {
 				vAgentes[pos] = new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente);
 			} else {
 				System.out.println("Error al dar de alta el agente. No hay huecos libres.");
 			}
-
+	
 			break;
-
+	
 		case 3:
 			int anosMandato = 0;
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce el nombre del nuevo agente: > ");
 			nombreAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce la edad del nuevo agente: > ");
@@ -273,11 +260,11 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			leerInput = new Scanner(System.in);
 			System.out.print(" Introduce la dirección del nuevo agente: > ");
 			dirAgente = leerInput.nextLine();
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce el salario del nuevo agente: > ");
@@ -292,7 +279,7 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			do {
 				leerInput = new Scanner(System.in);
 				System.out.print(" Introduce los años de mandato del nuevo agente: > ");
@@ -307,23 +294,35 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-
+	
 			pos = encontrarHuecoVector(vAgentes);
-
+	
 			if (pos != -1) {
 				vAgentes[pos] = new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato);
 			} else {
 				System.out.println("Error al dar de alta el agente. No hay huecos libres.");
 			}
-
+	
 			break;
 			
 		}
-
+	
 		System.out.println();
 		IODatos.guardarAgentes(ruta, vAgentes);
 		return vAgentes;
+	
+	}
 
+
+	private static int encontrarHuecoVector(Agente[] vAgentes) {
+	
+		for (int i = 0; i < vAgentes.length; i++) {
+			if (vAgentes[i] == null) {
+				return i;
+			}
+		}
+	
+		return -1;
 	}
 	
 
