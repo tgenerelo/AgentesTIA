@@ -61,7 +61,21 @@ public class IODatos {
 		return vItems;
 	}
 
-	public static void nuevaArmasoPiso(String ruta) { // opcion 3 y 4
+	public static void nuevaArmasoPiso(String ruta) {
+
+		/* SILVIA:
+		 * 
+		 * Método nuevaArmasoPiso(String ruta):
+		 * 
+		 * 1. El programa utiliza la ruta para saber automáticamente qué va a introducir el usuario y le pregunta.
+		 * 2. El usuario introduce el nombre del arma o la dirección del piso (se trata como String).
+		 * 3. El programa llama a IODatos.guardarPisoArma() y le pasa el String del usuario y la ruta.
+		 * 
+		 * Método IODatos.guardarPisoArma(String PisoArma, String ruta):
+		 *
+		 * 1. El programa comprueba la existencia del archivo en la ruta indicada.
+		 * 2. El programa escribe el String en la última línea del fichero.
+		 */
 
 		ruta = "ficheros/" + ruta;
 		Scanner leer = new Scanner(System.in);
