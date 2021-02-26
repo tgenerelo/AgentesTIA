@@ -14,6 +14,8 @@ public class Main {
 		String rutaArmas = "Armas.txt";
 		
 		Agente vAgentes[] = IODatos.cargarAgentes(rutaAgentes);
+		String[] vArmas = IODatos.cargarDatosTexto(rutaArmas);
+		String[] vPisos = IODatos.cargarDatosTexto(rutaPisos);
 
 		int userInput = 0;
 
@@ -29,9 +31,11 @@ public class Main {
 				break;
 			case 3:
 				Metodos.nuevaArmasoPiso(rutaPisos);
+				vPisos = IODatos.cargarDatosTexto(rutaPisos);
 				break;
 			case 4:
 				Metodos.nuevaArmasoPiso(rutaArmas);
+				vArmas = IODatos.cargarDatosTexto(rutaArmas);
 				break;
 			case 5:
 				vAgentes = Metodos.nuevoAgente(vAgentes, rutaAgentes);
