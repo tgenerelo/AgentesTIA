@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import agentesTIA.Agente;
@@ -59,10 +61,11 @@ public class IODatos {
 		return vItems;
 	}
 
-	public static String encriptar(Agente vAgentes[], String vArmas[], String vPisos[]) {
+	public static String encriptar(String ruta, Agente vAgentes[], String vArmas[], String vPisos[]) {
 
-		String info = "ficheros/info.dat";
-		File f = new File(info);
+		
+		ruta = "ficheros/" + ruta;
+		File f = new File(ruta);
 
 		if (!f.exists()) {
 			try {
@@ -95,12 +98,49 @@ public class IODatos {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		return info;
+		return ruta;
 	}
 
-	public static void desencriptar(String info, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
+public static void nuevaArmasoPiso (String ruta) { 		//  opcion 3 y 4
+		
+		ruta = "ficheros/" + ruta;
+		Scanner leer=new Scanner(System.in);
+		
+		File f = new File(ruta);
+		
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		 
+		try (FileWriter fw = new FileWriter(f,true);PrintWriter pw = new PrintWriter(fw) ){
+		
+				String dato;
+				
+				if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
+					System.out.println("Dime el piso para guardar");
+				}else {
+					System.out.println("Dime el arma para guardar");
+				}
+				dato = leer.nextLine();
+				pw.print("\n" + dato);
+				
+				
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}	
+	
+	public static void desencriptar(String ruta, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
 
-		File f = new File(info);
+		ruta="ficheros/" + ruta;
+		File f = new File(ruta);
 		if (!f.exists()) {
 			try {
 				f.createNewFile();
@@ -114,7 +154,7 @@ public class IODatos {
 		ObjectInputStream leer = null;
 
 		try {
-			fi = new FileInputStream(info);
+			fi = new FileInputStream(ruta);
 			leer = new ObjectInputStream(fi);
 
 			vAgentes = (Agente[]) leer.readObject();
@@ -131,13 +171,6 @@ public class IODatos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-//		for (Agente a : vAgentes) {
-//			if (a != null) {
-//				System.out.println(a);
-//			}
-//
-//		}
 
 	}
 

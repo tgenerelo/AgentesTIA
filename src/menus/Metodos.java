@@ -43,40 +43,7 @@ public class Metodos {
 		}
 	
 	
-	public static void nuevaArmasoPiso (String ruta) { 		//  opcion 3 y 4
-		
-		Scanner leer=new Scanner(System.in);
-		
-		File f = new File(ruta);
-		
-		if (!f.exists()) {
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		 
-		try (FileWriter fw = new FileWriter(f,true);PrintWriter pw = new PrintWriter(fw) ){
-		
-				String dato;
-				
-				if (ruta.equalsIgnoreCase("ficheros/pisos.txt")) {
-					System.out.println("Dime el piso para guardar");
-				}else {
-					System.out.println("Dime el arma para guardar");
-				}
-				dato = leer.nextLine();
-				pw.println(dato);
-				
-				
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}	
+	
 	
 
 	public static Agente[] nuevoAgente(Agente[] vAgentes, String ruta) {

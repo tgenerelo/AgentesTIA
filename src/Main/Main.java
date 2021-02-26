@@ -12,6 +12,7 @@ public class Main {
 		String rutaAgentes = "Agentes.dat";
 		String rutaPisos = "Pisos.txt";
 		String rutaArmas = "Armas.txt";
+		String rutaCrypt = "Info.dat";
 		
 		Agente vAgentes[] = IODatos.cargarAgentes(rutaAgentes);
 		String[] vArmas = IODatos.cargarDatosTexto(rutaArmas);
@@ -30,21 +31,21 @@ public class Main {
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-				Metodos.nuevaArmasoPiso(rutaPisos);
+				IODatos.nuevaArmasoPiso(rutaPisos);
 				vPisos = IODatos.cargarDatosTexto(rutaPisos);
 				break;
 			case 4:
-				Metodos.nuevaArmasoPiso(rutaArmas);
+				IODatos.nuevaArmasoPiso(rutaArmas);
 				vArmas = IODatos.cargarDatosTexto(rutaArmas);
 				break;
 			case 5:
 				vAgentes = Metodos.nuevoAgente(vAgentes, rutaAgentes);
 				break;
 			case 6:
-
+				IODatos.encriptar(rutaCrypt, vAgentes, vArmas, vPisos);
 				break;
 			case 7:
-
+				IODatos.desencriptar(rutaCrypt, vAgentes, vArmas, vPisos);
 				break;
 			}
 		} while (userInput != 8);
