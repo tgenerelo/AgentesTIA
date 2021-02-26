@@ -9,14 +9,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String rutaAgentes = "Agentes.dat";
-		String rutaPisos = "Pisos.txt";
-		String rutaArmas = "Armas.txt";
-		String rutaCrypt = "Info.dat";
+		String[] vRutas = new String[4];
+		vRutas[0] = "Agentes.dat";
+		vRutas[1] = "Pisos.txt";
+		vRutas[2] = "Armas.txt";
+		vRutas[3] = "Info.dat";
 		
-		Agente vAgentes[] = IODatos.cargarAgentes(rutaAgentes);
-		String[] vArmas = IODatos.cargarDatosTexto(rutaArmas);
-		String[] vPisos = IODatos.cargarDatosTexto(rutaPisos);
+		Agente vAgentes[] = IODatos.cargarAgentes(vRutas[0]);
+		String[] vPisos = IODatos.cargarDatosTexto(vRutas[1]);
+		String[] vArmas = IODatos.cargarDatosTexto(vRutas[2]);
+		
 
 		int userInput = 0;
 
@@ -31,21 +33,21 @@ public class Main {
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-				IODatos.nuevaArmasoPiso(rutaPisos);
-				vPisos = IODatos.cargarDatosTexto(rutaPisos);
+				IODatos.nuevaArmasoPiso(vRutas[1]);
+				vPisos = IODatos.cargarDatosTexto(vRutas[1]);
 				break;
 			case 4:
-				IODatos.nuevaArmasoPiso(rutaArmas);
-				vArmas = IODatos.cargarDatosTexto(rutaArmas);
+				IODatos.nuevaArmasoPiso(vRutas[2]);
+				vArmas = IODatos.cargarDatosTexto(vRutas[2]);
 				break;
 			case 5:
-				vAgentes = Metodos.nuevoAgente(vAgentes, rutaAgentes);
+				vAgentes = Metodos.nuevoAgente(vAgentes, vRutas[0]);
 				break;
 			case 6:
-				IODatos.encriptar(rutaCrypt, vAgentes, vArmas, vPisos);
+				IODatos.encriptar(vRutas[3], vAgentes, vArmas, vPisos);
 				break;
 			case 7:
-				IODatos.desencriptar(rutaCrypt, vAgentes, vArmas, vPisos);
+				IODatos.desencriptar(vRutas, vAgentes, vArmas, vPisos);
 				break;
 			}
 		} while (userInput != 8);
