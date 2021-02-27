@@ -9,6 +9,8 @@ import agentesTIA.ASuperintendente;
 import agentesTIA.Agente;
 
 public class Metodos {
+	
+	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
 	public static void mostrarAgentes(Agente[] vAgentes) {
 
@@ -16,11 +18,13 @@ public class Metodos {
 			if (agente != null)
 				System.out.println(agente.toString() + "\n");
 		}
+		
+		System.out.println(mensajeFinOperacion);
 	}
 
 	public static void salarioAgentes(Agente vAgente[]) {
 
-		System.out.print("  Introduce el salario minimo: > ");
+		System.out.print("  Introduce el salario mínimo que deseas buscar: > ");
 		Scanner leer = new Scanner(System.in);
 		float cantidad = leer.nextInt();
 		int cont = 0;
@@ -33,8 +37,10 @@ public class Metodos {
 		}
 
 		if (cont == 0) {
-			System.out.println("  No se han encontrado resultados.");
+			System.out.println("\n  No se han encontrado resultados.");
 		}
+		
+		System.out.println(mensajeFinOperacion);
 	}
 
 	public static void nuevaArmasoPiso(String ruta) {
@@ -51,6 +57,8 @@ public class Metodos {
 		dato = leer.nextLine();
 		
 		IODatos.guardarPisoArma(dato, ruta);
+		
+		System.out.println(mensajeFinOperacion);
 		
 		}
 	
@@ -284,6 +292,7 @@ public class Metodos {
 
 		System.out.println();
 		IODatos.guardarAgentes(ruta, vAgentes);
+		System.out.println(mensajeFinOperacion);
 		return vAgentes;
 
 	}
