@@ -2,17 +2,33 @@ package agentesTIA;
 
 import IODatos.IODatos;
 
+/**
+ * La clase A007 es un subtipo de la clase Agente que posee un vector de armas disponibles y un número de bajas efectuadas.
+ * @author Silvia Montañés
+ */
 public final class A007 extends Agente {
 
 	private String[] vArmas;
 	private int muertes;
 
+	/**
+	 * Instancia un objeto de clase A007 con los datos especificados. vArmas se rellena automáticamente con la información del fichero correspondiente.
+	 * @param nombre El nombre propio del agente.
+	 * @param edad La edad del agente.
+	 * @param direccion La dirección postal del agente.
+	 * @param salario El salario que cobra el agente.
+	 * @param muertes El número de bajas realizadas por el agente.
+	 */
 	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
 		super(nombre, edad, direccion, salario);
 		this.vArmas = IODatos.cargarDatosTexto("Armas.txt");
 		this.muertes = muertes;
 	}
 
+	/**
+	 * Genera un String con la lista de armas de las que dispone el agente, separadas por comas.
+	 * @return String con todas las armas separadas por comas.
+	 */
 	private String todasArmas() {
 	
 		String todasArmas = "";
@@ -28,6 +44,8 @@ public final class A007 extends Agente {
 		return todasArmas;
 	}
 
+	
+//	GETTERS Y SETTERS
 	public String[] getArmas() {
 		return vArmas;
 	}

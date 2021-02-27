@@ -12,6 +12,10 @@ public class Metodos {
 	
 	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
+	/**
+	 * asdfasdfasdf
+	 * @param vAgentes
+	 */
 	public static void mostrarAgentes(Agente[] vAgentes) {
 
 		for (Agente agente : vAgentes) {
