@@ -61,26 +61,11 @@ public class IODatos {
 		return vItems;
 	}
 
-	public static void nuevaArmasoPiso(String ruta) {
 
-		/* SILVIA:
-		 * 
-		 * Método nuevaArmasoPiso(String ruta):
-		 * 
-		 * 1. El programa utiliza la ruta para saber automáticamente qué va a introducir el usuario y le pregunta.
-		 * 2. El usuario introduce el nombre del arma o la dirección del piso (se trata como String).
-		 * 3. El programa llama a IODatos.guardarPisoArma() y le pasa el String del usuario y la ruta.
-		 * 
-		 * Método IODatos.guardarPisoArma(String PisoArma, String ruta):
-		 *
-		 * 1. El programa comprueba la existencia del archivo en la ruta indicada.
-		 * 2. El programa escribe el String en la última línea del fichero.
-		 */
-
-		ruta = "ficheros/" + ruta;
-		Scanner leer = new Scanner(System.in);
-
-		File f = new File(ruta);
+		
+	public static void guardarPisoArma(String dato, String ruta) {
+		
+			File f = new File(ruta);
 
 		if (!f.exists()) {
 			try {
@@ -93,14 +78,6 @@ public class IODatos {
 
 		try (FileWriter fw = new FileWriter(f, true); PrintWriter pw = new PrintWriter(fw)) {
 
-			String dato;
-
-			if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
-				System.out.println("Dime el piso para guardar");
-			} else {
-				System.out.println("Dime el arma para guardar");
-			}
-			dato = leer.nextLine();
 			pw.print("\n" + dato);
 
 		} catch (IOException e) {
@@ -108,6 +85,11 @@ public class IODatos {
 			e.printStackTrace();
 		}
 	}
+		
+		
+	
+	
+	
 
 	public static Agente[] cargarAgentes(String ruta) {
 
