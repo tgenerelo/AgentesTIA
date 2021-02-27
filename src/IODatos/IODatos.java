@@ -16,13 +16,20 @@ import agentesTIA.Agente;
 
 public class IODatos {
 
+	/**
+	 * El mensaje que se mostrará al terminar la ejecución de cada método.
+	 */
 	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 	
-	public static String[] cargarDatosTexto(String nombreFichero) {
+	/**
+	 * Carga todas las líneas del fichero especificado y las devuelve en forma de vector de String.
+	 * @param ruta El fichero de donde se cargará la información.
+	 * @return Devuelve un vector de String.
+	 */
+	public static String[] cargarDatosTexto(String ruta) {
 
 		String vItems[] = new String[20];
 		int cont = 0;
-		String ruta = "ficheros/" + nombreFichero;
 
 		File f = new File(ruta);
 
@@ -31,7 +38,7 @@ public class IODatos {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
-				System.out.println("! Hubo un error durante la creación del fichero " + nombreFichero);
+				System.out.println("! Hubo un error durante la creación del fichero " + ruta);
 			}
 		}
 
@@ -41,16 +48,20 @@ public class IODatos {
 				cont++;
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("! No se ha encontrado el archivo " + nombreFichero);
+			System.out.println("! No se ha encontrado el archivo " + ruta);
 		} catch (IOException e) {
 			System.out.println("! Hubo un error durante la lectura de " + f.getPath());
 		}
 		return vItems;
 	}
 
+	/**
+	 * Guarda un dato de tipo String en la última línea del fichero de texto indicado.
+	 * @param dato String que se guardará en el fichero.
+	 * @param ruta Ruta del fichero de destino.
+	 */
 	public static void guardarPisoArma(String dato, String ruta) {
 
-		ruta = "ficheros/" + ruta;
 		File f = new File(ruta);
 
 		if (!f.exists()) {
@@ -68,9 +79,14 @@ public class IODatos {
 		}
 	}
 
+	/**
+	 * Carga una serie de objetos de tipo Agente en el fichero especificado y los devuelve en forma de vector.
+	 * @param ruta La ruta del archivo.
+	 * @return Devuelve un vector de Agente[].
+	 */
 	public static Agente[] cargarAgentes(String ruta) {
 
-		File f = new File("ficheros/" + ruta);
+		File f = new File(ruta);
 		Agente[] vAgentes = new Agente[20];
 		int cont = 0;
 
@@ -87,8 +103,13 @@ public class IODatos {
 		return vAgentes;
 	}
 
+	/**
+	 * Recibe un vector de objetos de tipo Agente y los guarda, uno a uno, en el archivo indicado.
+	 * @param ruta La ruta del archivo donde se guardarán los datos.
+	 * @param vAgentes El vector con los objetos de tipo Agente que se quieren guardar.
+	 */
 	public static void guardarAgentes(String ruta, Agente[] vAgentes) {
-		File f = new File("ficheros/" + ruta);
+		File f = new File(ruta);
 
 		if (!f.exists())
 			try {
@@ -105,9 +126,15 @@ public class IODatos {
 		}
 	}
 
+	/**
+	 * Guarda en un fichero .dat la información de los vectores recibidos.
+	 * @param ruta La ruta del fichero donde se guardará la información.
+	 * @param vAgentes Vector de objetos de clase Agente.
+	 * @param vArmas Vector de armas en formato String.
+	 * @param vPisos Vector de pisos en formato String.
+	 */
 	public static void encriptar(String ruta, Agente vAgentes[], String vArmas[], String vPisos[]) {
 
-		ruta = "ficheros/" + ruta;
 		File f = new File(ruta);
 
 		if (!f.exists()) {
@@ -134,12 +161,19 @@ public class IODatos {
 		System.out.println(mensajeFinOperacion);
 	}
 
+	/**
+	 * Recibe la ruta de un archivo y restaura varios ficheros contenidos en él.
+	 * @param vRutas Vector con las rutas de los archivos que se restaurarán.
+	 * @param vAgentes Vector donde se guardarán los datos de tipo Agente.
+	 * @param vArmas Vector donde se guardarán las armas en formato String.
+	 * @param vPisos Vector donde se guardarán los pisos en formato String.
+	 */
 	public static void desencriptar(String[] vRutas, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
 
-		String rutaAgentes = "ficheros/" + vRutas[0];
-		String rutaPisos = "ficheros/" + vRutas[1];
-		String rutaArmas = "ficheros/" + vRutas[2];
-		String rutaCrypt = "ficheros/" + vRutas[3];
+		String rutaAgentes = vRutas[0];
+		String rutaPisos = vRutas[1];
+		String rutaArmas = vRutas[2];
+		String rutaCrypt = vRutas[3];
 
 		File fCrypt = new File(rutaCrypt);
 		File fAgentes = new File(rutaAgentes);
