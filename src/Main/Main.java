@@ -15,14 +15,11 @@ public class Main {
 		vRutas[2] = "Armas.txt";
 		vRutas[3] = "Info.dat";
 		
-		
-		
-
 		int userInput = 0;
 
 		do {
 			
-			Agente vAgentes[] = IODatos.cargarAgentes(vRutas[0]);
+			Agente[] vAgentes = IODatos.cargarAgentes(vRutas[0]);
 			String[] vPisos = IODatos.cargarDatosTexto(vRutas[1]);
 			String[] vArmas = IODatos.cargarDatosTexto(vRutas[2]);
 			
