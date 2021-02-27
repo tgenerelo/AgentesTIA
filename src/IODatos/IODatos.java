@@ -205,30 +205,32 @@ public class IODatos {
 				}
 			}
 
-			if (!fArmas.exists()) {
+			if(fArmas.exists())
+				fArmas.delete();
+			
 			try {
 				fArmas.createNewFile();
 				for (String arma : vArmas) {
 					if (arma != null) {
-						IODatos.guardarPisoArma(arma, vRutas[2]);
+						IODatos.guardarPisoArma(arma, rutaArmas);
 					}
 				}
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fArmas);
 			}
-			}
 
-			if (!fPisos.exists()) {
+			if (fPisos.exists())
+				fPisos.delete();
+				
 			try {
 				fPisos.createNewFile();
 				for (String piso : vPisos) {
 					if (piso != null) {
-						IODatos.guardarPisoArma(piso, vRutas[1]);
+						IODatos.guardarPisoArma(piso, rutaPisos);
 					}
 				}
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fPisos);
-			}
 			}
 		}
 		
