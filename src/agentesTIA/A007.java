@@ -46,7 +46,7 @@ public final class A007 extends Agente {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nNúmero de bajas: " + muertes + "\nArmas: " + todasArmas();
+		return super.toString() + "\n  Número de bajas: " + muertes + "\n  Armas: " + todasArmas();
 	}
 
 }
