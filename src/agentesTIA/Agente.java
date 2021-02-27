@@ -50,7 +50,7 @@ public abstract class Agente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Nombre del agente: " + nombre + "\nEdad: " + edad + "\nDirección: " + direccion + "\nSalario: "
+		return "  Nombre del agente: " + nombre + "\n  Edad: " + edad + "\n  Dirección: " + direccion + "\n  Salario: "
 				+ salario + " €";
 	}
 

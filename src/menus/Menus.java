@@ -3,15 +3,10 @@ package menus;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import IODatos.IODatos;
-import agentesTIA.A007;
-import agentesTIA.AEspionaje;
-import agentesTIA.ASuperintendente;
-import agentesTIA.Agente;
-
 public class Menus {
 
 	public static int mostrarMenu() {
+
 		Scanner leerInput = new Scanner(System.in);
 		int userInput = 0;
 		boolean error = false;
@@ -49,6 +44,18 @@ public class Menus {
 		System.out.println();
 
 		return userInput;
+	}
+
+	private static int calcularAnchoMenu(String[] vOpciones) {
+	
+		int ancho = 0;
+	
+		for (String opcion : vOpciones) {
+			if (opcion.length() > ancho)
+				ancho = opcion.length();
+		}
+	
+		return ancho;
 	}
 
 	private static void pintarMenu(String titulo, String vOpciones[]) {
@@ -95,6 +102,7 @@ public class Menus {
 		System.out.println("╝");
 
 		System.out.print("┌");
+		
 		for (int i = 0; i < anchoTotal; i++) {
 			System.out.print("─");
 		}
@@ -107,27 +115,13 @@ public class Menus {
 		System.out.println("│ " + vOpciones[3] + " │ " + vOpciones[7] + " │");
 
 		System.out.print("└");
+		
 		for (int i = 0; i < anchoTotal; i++) {
 			System.out.print("─");
 		}
 
 		System.out.println("┘");
 	}
-
-	private static int calcularAnchoMenu(String[] vOpciones) {
-
-		int ancho = 0;
-
-		for (String opcion : vOpciones) {
-			if (opcion.length() > ancho)
-				ancho = opcion.length();
-		}
-
-		return ancho;
-
-	}
-
-	
 
 	public static void pintarSubmenu(String titulo) {
 
@@ -152,5 +146,4 @@ public class Menus {
 		System.out.println("┘");
 	}
 
-	
 }
