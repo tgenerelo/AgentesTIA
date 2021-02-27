@@ -2,10 +2,6 @@ package agentesTIA;
 
 import IODatos.IODatos;
 
-/**
- * La clase A007 es un subtipo de la clase Agente que posee un vector de armas disponibles y un número de bajas efectuadas.
- * @author Silvia Montañés
- */
 public final class A007 extends Agente {
 
 	private String[] vArmas;
