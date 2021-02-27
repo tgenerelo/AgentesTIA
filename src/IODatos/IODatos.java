@@ -16,6 +16,8 @@ import agentesTIA.Agente;
 
 public class IODatos {
 
+	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
+	
 	public static String[] cargarDatosTexto(String nombreFichero) {
 
 		String vItems[] = new String[20];
@@ -128,6 +130,8 @@ public class IODatos {
 			System.out.println("! Hubo un error durante la escritura del fichero " + ruta);
 		} catch (IOException e) {
 		}
+		
+		System.out.println(mensajeFinOperacion);
 	}
 
 	public static void desencriptar(String[] vRutas, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
@@ -167,7 +171,7 @@ public class IODatos {
 				}
 			}
 
-//			if (!fArmas.exists()) {
+			if (!fArmas.exists()) {
 			try {
 				fArmas.createNewFile();
 				for (String arma : vArmas) {
@@ -178,9 +182,9 @@ public class IODatos {
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fArmas);
 			}
-//			}
+			}
 
-//			if (!fPisos.exists()) {
+			if (!fPisos.exists()) {
 			try {
 				fPisos.createNewFile();
 				for (String piso : vPisos) {
@@ -191,7 +195,11 @@ public class IODatos {
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fPisos);
 			}
-//			}
+			}
 		}
+		
+		System.out.println(mensajeFinOperacion);
 	}
+	
+	
 }

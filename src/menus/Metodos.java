@@ -31,7 +31,7 @@ public class Metodos {
 
 		for (int i = 0; i < vAgente.length; i++) {
 			if ((vAgente[i] != null) && (cantidad <= vAgente[i].getSalario())) {
-				System.out.println(vAgente[i]);
+				System.out.println(vAgente[i] + "\n");
 				cont++;
 			}
 		}
@@ -290,7 +290,6 @@ public class Metodos {
 			break;
 		}
 
-		System.out.println();
 		IODatos.guardarAgentes(ruta, vAgentes);
 		System.out.println(mensajeFinOperacion);
 		return vAgentes;
