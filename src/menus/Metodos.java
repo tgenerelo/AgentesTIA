@@ -43,7 +43,7 @@ public class Metodos {
 		String dato;
 
 		if (ruta.equalsIgnoreCase("Pisos.txt")) {
-			System.out.println("Dime el piso para guardar");
+			System.out.print("  Introduce el nombre del nuevo piso: > ");
 		} else {
 			System.out.print("  Introduce el nombre de la nueva arma: > ");
 		}
@@ -114,7 +114,7 @@ public class Metodos {
 					System.out.println("  Edad no válida. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E1). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E1). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -133,7 +133,7 @@ public class Metodos {
 					System.out.println("  Salario no válido. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E2). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E2). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -166,7 +166,7 @@ public class Metodos {
 					System.out.println("  Edad no válida. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E11). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E11). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -185,14 +185,14 @@ public class Metodos {
 					System.out.println("  Salario no válido. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("Se ha producido un error desconocido (E12). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E12). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
 
 			do {
 				leerInput = new Scanner(System.in);
-				System.out.print(" Introduce el número de bajas del nuevo agente: > ");
+				System.out.print("  Introduce el número de bajas del nuevo agente: > ");
 				error = false;
 				try {
 					muertesAgente = leerInput.nextInt();
@@ -200,7 +200,7 @@ public class Metodos {
 					System.out.println("  Número no válido. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E13). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E13). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -232,7 +232,7 @@ public class Metodos {
 					System.out.println("  Edad no válida. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E11). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E11). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -251,7 +251,7 @@ public class Metodos {
 					System.out.println("  Salario no válido. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E12). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E12). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
@@ -266,7 +266,7 @@ public class Metodos {
 					System.out.println("  Número no válido. Inténtalo de nuevo.");
 					error = true;
 				} catch (Exception e) {
-					System.out.println("  Se ha producido un error desconocido (E13). Inténtalo de nuevo.");
+					System.out.println("! Se ha producido un error desconocido (E13). Inténtalo de nuevo.");
 					error = true;
 				}
 			} while (error == true);
