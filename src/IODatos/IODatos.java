@@ -61,35 +61,27 @@ public class IODatos {
 		return vItems;
 	}
 
-
-		
 	public static void guardarPisoArma(String dato, String ruta) {
-		
-			File f = new File(ruta);
+
+		ruta = "ficheros/" + ruta;
+		File f = new File(ruta);
 
 		if (!f.exists()) {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 
 		try (FileWriter fw = new FileWriter(f, true); PrintWriter pw = new PrintWriter(fw)) {
 
-			pw.print("\n" + dato);
+			pw.print(dato + "\n");
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-		
-		
-	
-	
-	
 
 	public static Agente[] cargarAgentes(String ruta) {
 
@@ -208,43 +200,41 @@ public class IODatos {
 			if (!fAgentes.exists()) {
 				try {
 					fAgentes.createNewFile();
-					for (Agente agente : vAgentes) {
-						if (agente != null) {
-							IODatos.guardarAgentes(rutaAgentes, vAgentes);
-						}
-					}
+
+					IODatos.guardarAgentes(vRutas[0], vAgentes);
+
 				} catch (IOException e) {
 					System.out.println("Se ha producido un error al crear el archivo " + fAgentes);
 				}
 
 			}
 
-			if (!fArmas.exists()) {
+//			if (!fArmas.exists()) {
 				try {
 					fArmas.createNewFile();
 					for (String arma : vArmas) {
 						if (arma != null) {
-							IODatos.guardarPisoArma(arma, rutaArmas);
+							IODatos.guardarPisoArma(arma, vRutas[2]);
 						}
 					}
 				} catch (IOException e) {
 					System.out.println("Se ha producido un error al crear el archivo " + fArmas);
 				}
 
-			}
+//			}
 
-			if (!fPisos.exists()) {
+//			if (!fPisos.exists()) {
 				try {
 					fPisos.createNewFile();
 					for (String piso : vPisos) {
 						if (piso != null) {
-							IODatos.guardarPisoArma(piso, rutaPisos);
+							IODatos.guardarPisoArma(piso, vRutas[1]);
 						}
 					}
 				} catch (IOException e) {
 					System.out.println("Se ha producido un error al crear el archivo " + fPisos);
 				}
-			}
+//			}
 		}
 	}
 }

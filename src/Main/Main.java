@@ -15,14 +15,17 @@ public class Main {
 		vRutas[2] = "Armas.txt";
 		vRutas[3] = "Info.dat";
 		
-		Agente vAgentes[] = IODatos.cargarAgentes(vRutas[0]);
-		String[] vPisos = IODatos.cargarDatosTexto(vRutas[1]);
-		String[] vArmas = IODatos.cargarDatosTexto(vRutas[2]);
+		
 		
 
 		int userInput = 0;
 
 		do {
+			
+			Agente vAgentes[] = IODatos.cargarAgentes(vRutas[0]);
+			String[] vPisos = IODatos.cargarDatosTexto(vRutas[1]);
+			String[] vArmas = IODatos.cargarDatosTexto(vRutas[2]);
+			
 			userInput = Menus.mostrarMenu();
 
 			switch (userInput) {
@@ -33,11 +36,11 @@ public class Main {
 				Metodos.salarioAgentes(vAgentes);
 				break;
 			case 3:
-				IODatos.nuevaArmasoPiso(vRutas[1]);
+				Metodos.nuevaArmasoPiso(vRutas[1]);
 				vPisos = IODatos.cargarDatosTexto(vRutas[1]);
 				break;
 			case 4:
-				IODatos.nuevaArmasoPiso(vRutas[2]);
+				Metodos.nuevaArmasoPiso(vRutas[2]);
 				vArmas = IODatos.cargarDatosTexto(vRutas[2]);
 				break;
 			case 5:

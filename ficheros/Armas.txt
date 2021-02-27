@@ -5,5 +5,3 @@ Bazooka
 Ametralladora
 Fusil
 Granadas
-Mortero
-TEC9
