@@ -5,12 +5,23 @@ import IODatos.IODatos;
 public final class AEspionaje extends Agente {
 
 	private String[] vPisos;
-
+	
+	/**
+	 * Instancia un objeto de clase AEspionaje con los datos especificados. vPisos se rellena automáticamente con la información del fichero correspondiente.
+	 * @param nombre El nombre propio del agente.
+	 * @param edad La edad del agente.
+	 * @param direccion La dirección postal del agente.
+	 * @param salario El salario que cobra el agente.
+	 */
 	public AEspionaje(String nombre, int edad, String direccion, float salario) {
 		super(nombre, edad, direccion, salario);
 		this.vPisos = IODatos.cargarDatosTexto("Pisos.txt");
 	}
 
+	/**
+	 * Genera un String con la lista de pisos de los que dispone el agente, separados por comas.
+	 * @return String con todos los pisos separados por comas.
+	 */
 	private String todosPisos() {
 		String todosPisos = "";
 	
@@ -25,6 +36,8 @@ public final class AEspionaje extends Agente {
 		return todosPisos;
 	}
 
+	
+//	GETTERS Y SETTERS
 	public String[] getPisos() {
 		return vPisos;
 	}
