@@ -35,7 +35,7 @@ public final class AEspionaje extends Agente {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n  Pisos: " + todosPisos();
+		return super.toString() + "\n  Pisos: ".toUpperCase() + todosPisos();
 	}
 
 }
