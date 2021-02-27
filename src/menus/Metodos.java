@@ -10,11 +10,14 @@ import agentesTIA.Agente;
 
 public class Metodos {
 	
+	/**
+	 * El mensaje que se mostrará al terminar la ejecución de cada método.
+	 */
 	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
 	/**
-	 * asdfasdfasdf
-	 * @param vAgentes
+	 * Muestra la información de todos los agentes contenidos en el vector que recibe.
+	 * @param vAgentes El vector con los datos de tipo Agente.
 	 */
 	public static void mostrarAgentes(Agente[] vAgentes) {
 
@@ -26,6 +29,10 @@ public class Metodos {
 		System.out.println(mensajeFinOperacion);
 	}
 
+	/**
+	 * Pide al usuario una cantidad y muestra la información de todos los agentes cuyo salario es mayor.
+	 * @param vAgente El vector con los datos de tipo Agente.
+	 */
 	public static void salarioAgentes(Agente vAgente[]) {
 
 		System.out.print("  Introduce el salario mínimo que deseas buscar: > ");
@@ -47,12 +54,16 @@ public class Metodos {
 		System.out.println(mensajeFinOperacion);
 	}
 
+	/**
+	 * Pide al usuario un arma o piso en formato String que se añadirá a un fichero en la ruta especificada.
+	 * @param ruta Ruta del fichero donde se guardará la información.
+	 */
 	public static void nuevaArmasoPiso(String ruta) {
 
 		Scanner leer=new Scanner(System.in);
 		String dato;
 
-		if (ruta.equalsIgnoreCase("Pisos.txt")) {
+		if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
 			System.out.print("  Introduce el nombre del nuevo piso: > ");
 		} else {
 			System.out.print("  Introduce el nombre de la nueva arma: > ");
@@ -66,7 +77,12 @@ public class Metodos {
 		
 		}
 	
-
+	/**
+	 * Permite al usuario crear un nuevo objeto de cualquiera de las subclases de Agente. El nuevo objeto se añadirá al vector recibido y a un archivo en la ruta especificada.
+	 * @param vAgentes El vector donde se guardará el nuevo objeto.
+	 * @param ruta La ruta donde se guardará el nuevo objeto.
+	 * @return El vector de Agentes actualizado con el nuevo objeto.
+	 */
 	public static Agente[] nuevoAgente(Agente[] vAgentes, String ruta) {
 
 		Scanner leerInput = new Scanner(System.in);
@@ -300,6 +316,11 @@ public class Metodos {
 
 	}
 
+	/**
+	 * Busca el primer hueco libre en el vector indicado y devuelve su posición.
+	 * @param vAgentes El vector donde se buscará un hueco libre.
+	 * @return La primera posición libre. Si no hay ninguna, devolverá el valor -1.
+	 */
 	private static int encontrarHuecoVector(Agente[] vAgentes) {
 
 		for (int i = 0; i < vAgentes.length; i++) {

@@ -5,4 +5,3 @@ Bazooka
 Ametralladora
 Fusil
 Granadas
-

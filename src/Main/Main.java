@@ -9,11 +9,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		String rutaCarpeta = "ficheros/";
+		
 		String[] vRutas = new String[4];
-		vRutas[0] = "Agentes.dat";
-		vRutas[1] = "Pisos.txt";
-		vRutas[2] = "Armas.txt";
-		vRutas[3] = "Info.dat";
+		vRutas[0] = rutaCarpeta + "Agentes.dat";
+		vRutas[1] = rutaCarpeta + "Pisos.txt";
+		vRutas[2] = rutaCarpeta + "Armas.txt";
+		vRutas[3] = rutaCarpeta + "Info.dat";
 		
 		int userInput = 0;
 
