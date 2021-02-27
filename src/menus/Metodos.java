@@ -43,7 +43,20 @@ public class Metodos {
 		}
 	
 	
-	
+	public static void nuevaArmasoPiso(String ruta) {
+
+		Scanner leer=new Scanner(System.in);
+		ruta = "ficheros/" + ruta;
+		String dato;
+
+		if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
+			System.out.println("Dime el piso para guardar");
+		} else {
+			System.out.println("Dime el arma para guardar");
+		}
+		dato = leer.nextLine();
+		
+		}
 	
 
 	public static Agente[] nuevoAgente(Agente[] vAgentes, String ruta) {
