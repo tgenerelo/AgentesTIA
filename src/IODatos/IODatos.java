@@ -29,34 +29,19 @@ public class IODatos {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("! Hubo un error durante la creación del fichero " + nombreFichero);
 			}
 		}
 
-		FileReader fr = null;
-		Scanner leer = null;
-
-		try {
-			fr = new FileReader(f);
-			leer = new Scanner(fr);
-
+		try (FileReader fr = new FileReader(f); Scanner leer = new Scanner(fr)) {
 			while (leer.hasNext()) {
 				vItems[cont] = leer.nextLine();
 				cont++;
 			}
-
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				fr.close();
-				leer.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			System.out.println("! No se ha encontrado el archivo " + nombreFichero);
+		} catch (IOException e) {
+			System.out.println("! Hubo un error durante la lectura de " + f.getPath());
 		}
 		return vItems;
 	}
@@ -70,16 +55,14 @@ public class IODatos {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
-//				e.printStackTrace();
+				System.out.println("! Hubo un error durante la creación del fichero " + ruta);
 			}
 		}
 
 		try (FileWriter fw = new FileWriter(f, true); PrintWriter pw = new PrintWriter(fw)) {
-
 			pw.print(dato + "\n");
-
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("! Hubo un error durante la escritura del fichero " + ruta);
 		}
 	}
 
@@ -90,16 +73,12 @@ public class IODatos {
 		int cont = 0;
 
 		if (f.exists()) {
-
 			try (FileInputStream fi = new FileInputStream(f); ObjectInputStream leer = new ObjectInputStream(fi)) {
-
 				while (true) {
 					vAgentes[cont] = (Agente) leer.readObject();
 					cont++;
 				}
-
 			} catch (Exception e) {
-
 			}
 		}
 
@@ -113,17 +92,14 @@ public class IODatos {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
-				System.out.println("Hubo un error durante la creación del fichero " + ruta + ".");
+				System.out.println("! Hubo un error durante la creación del fichero " + ruta + ".");
 			}
 
 		try (FileOutputStream fo = new FileOutputStream(f); ObjectOutputStream escribir = new ObjectOutputStream(fo)) {
-
 			for (Agente agente : vAgentes) {
 				escribir.writeObject(agente);
 			}
-
 		} catch (IOException e) {
-
 		}
 	}
 
@@ -136,18 +112,11 @@ public class IODatos {
 			try {
 				f.createNewFile();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				System.out.println("! Hubo un error al crear " + ruta);
 			}
 		}
 
-		FileOutputStream fo = null;
-		ObjectOutputStream escribir = null;
-
-		try {
-			fo = new FileOutputStream(f);
-			escribir = new ObjectOutputStream(fo);
-
+		try (FileOutputStream fo = new FileOutputStream(f); ObjectOutputStream escribir = new ObjectOutputStream(fo)) {
 			for (int i = 0; i < vAgentes.length; i++) {
 				if (vAgentes[i] != null) {
 					escribir.writeObject(vAgentes);
@@ -155,15 +124,10 @@ public class IODatos {
 					escribir.writeObject(vPisos);
 				}
 			}
-
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("! Hubo un error durante la escritura del fichero " + ruta);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
 		}
-
 	}
 
 	public static void desencriptar(String[] vRutas, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
@@ -187,53 +151,46 @@ public class IODatos {
 				vPisos = (String[]) leer.readObject();
 
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("! No se ha encontrado el archivo " + fCrypt.getPath());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("! Hubo un error durante la lectura de " + fCrypt.getPath());
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("! Se ha producido un error ClassNotFound en " + fCrypt.getPath());
 			}
 
 			if (!fAgentes.exists()) {
 				try {
 					fAgentes.createNewFile();
-
 					IODatos.guardarAgentes(vRutas[0], vAgentes);
-
 				} catch (IOException e) {
-					System.out.println("Se ha producido un error al crear el archivo " + fAgentes);
+					System.out.println("! Se ha producido un error al crear el archivo " + fAgentes);
 				}
-
 			}
 
 //			if (!fArmas.exists()) {
-				try {
-					fArmas.createNewFile();
-					for (String arma : vArmas) {
-						if (arma != null) {
-							IODatos.guardarPisoArma(arma, vRutas[2]);
-						}
+			try {
+				fArmas.createNewFile();
+				for (String arma : vArmas) {
+					if (arma != null) {
+						IODatos.guardarPisoArma(arma, vRutas[2]);
 					}
-				} catch (IOException e) {
-					System.out.println("Se ha producido un error al crear el archivo " + fArmas);
 				}
-
+			} catch (IOException e) {
+				System.out.println("! Se ha producido un error al crear el archivo " + fArmas);
+			}
 //			}
 
 //			if (!fPisos.exists()) {
-				try {
-					fPisos.createNewFile();
-					for (String piso : vPisos) {
-						if (piso != null) {
-							IODatos.guardarPisoArma(piso, vRutas[1]);
-						}
+			try {
+				fPisos.createNewFile();
+				for (String piso : vPisos) {
+					if (piso != null) {
+						IODatos.guardarPisoArma(piso, vRutas[1]);
 					}
-				} catch (IOException e) {
-					System.out.println("Se ha producido un error al crear el archivo " + fPisos);
 				}
+			} catch (IOException e) {
+				System.out.println("! Se ha producido un error al crear el archivo " + fPisos);
+			}
 //			}
 		}
 	}
