@@ -1,12 +1,12 @@
 package agentesTIA;
 
 public class ASuperintendente extends Agente {
-	
+
 	int anosMandato;
 
 	public ASuperintendente(String nombre, int edad, String direccion, float salario, int anosMandato) {
 		super(nombre, edad, direccion, salario);
-		this.anosMandato=anosMandato;
+		this.anosMandato = anosMandato;
 	}
 
 	public int getAnosMandato() {
@@ -17,14 +17,10 @@ public class ASuperintendente extends Agente {
 		this.anosMandato = anosMandato;
 	}
 
-
-	
 	@Override
 	public String toString() {
-		String decoracion = "═════════════════════════════";
-		return decoracion + "\n" + super.toString() + "\nAños de mandato: " + anosMandato + "\n" + decoracion;
+		String decoracion = "  ═════════════════════════════  ";
+		return decoracion + "\n" + super.toString() + "\n  Años de mandato: " + anosMandato + "\n" + decoracion;
 	}
-	
-	
 
 }

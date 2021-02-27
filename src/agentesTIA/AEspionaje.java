@@ -1,7 +1,5 @@
 package agentesTIA;
 
-import java.util.Arrays;
-
 import IODatos.IODatos;
 
 public final class AEspionaje extends Agente {
@@ -13,6 +11,20 @@ public final class AEspionaje extends Agente {
 		this.vPisos = IODatos.cargarDatosTexto("Pisos.txt");
 	}
 
+	private String todosPisos() {
+		String todosPisos = "";
+	
+		for (int i = 0; i < vPisos.length; i++) {
+			if (vPisos[i] != null) {
+				todosPisos += vPisos[i];
+			}
+			if (i < vPisos.length - 1 && vPisos[i + 1] != null)
+				todosPisos += ", ";
+		}
+	
+		return todosPisos;
+	}
+
 	public String[] getPisos() {
 		return vPisos;
 	}
@@ -21,24 +33,9 @@ public final class AEspionaje extends Agente {
 		this.vPisos = pisos;
 	}
 
-	private String todosPisos() {
-		String todosPisos = "";
-
-		for (int i = 0; i < vPisos.length; i++) {
-			if (vPisos[i] != null) {
-				todosPisos += vPisos[i];
-			}
-			if (i < vPisos.length-1 && vPisos[i+1]!=null)
-				todosPisos += ", ";
-		}
-		
-		return todosPisos;
-
-	}
-
 	@Override
 	public String toString() {
-		return super.toString() + "\nPisos: " + todosPisos();
+		return super.toString() + "\n  Pisos: " + todosPisos();
 	}
 
 }
