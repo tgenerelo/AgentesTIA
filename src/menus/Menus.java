@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Menus {
 
+	/**
+	 * Muestra el menú principal y devuelve la opción escogida por el usuario.
+	 * @return Una opción válida escogida por el usuario.
+	 */
 	public static int mostrarMenu() {
 
 		Scanner leerInput = new Scanner(System.in);
@@ -46,6 +50,11 @@ public class Menus {
 		return userInput;
 	}
 
+	/**
+	 * Devuelve la longitud del String más largo en el vector recibido.
+	 * @param vOpciones Vector con las opciones que contiene el menú.
+	 * @return La longitud de la opción más larga.
+	 */
 	private static int calcularAnchoMenu(String[] vOpciones) {
 	
 		int ancho = 0;
@@ -58,6 +67,11 @@ public class Menus {
 		return ancho;
 	}
 
+	/**
+	 * Imprime en pantalla el menú principal.
+	 * @param titulo El título que aparecerá en el menú sobre las opciones.
+	 * @param vOpciones Un vector que contiene las distintas opciones del menú.
+	 */
 	private static void pintarMenu(String titulo, String vOpciones[]) {
 
 		int opcionMasLarga = calcularAnchoMenu(vOpciones);
@@ -123,6 +137,10 @@ public class Menus {
 		System.out.println("┘");
 	}
 
+	/**
+	 * Imprime por pantalla el contenido de un submenú con una serie de opciones numeradas automáticamente.
+	 * @param titulo El título que mostrará el submenú.
+	 */
 	public static void pintarSubmenu(String titulo) {
 
 		titulo = ("Nuevo " + titulo).toUpperCase();
