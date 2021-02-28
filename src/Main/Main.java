@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String rutaCarpeta = "ficheros/";
+		String rutaCarpeta = "recursos/";
 		
 //		Vector de rutas de ficheros
 		String[] vRutas = new String[4];
