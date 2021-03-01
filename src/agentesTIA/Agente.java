@@ -2,6 +2,13 @@ package agentesTIA;
 
 import java.io.Serializable;
 
+	/**
+	 * @author Tomás Generelo
+	 * @author Silvia Montañés
+	 * @date 2021-03-01
+	 * @version 1.0
+	 */
+
 public abstract class Agente implements Serializable{
 	
 	protected String nombre;

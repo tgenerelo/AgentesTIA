@@ -2,6 +2,13 @@ package agentesTIA;
 
 import IODatos.IODatos;
 
+	/**
+	 * @author Tomás Generelo
+	 * @author Silvia Montañés
+	 * @date 2021-03-01
+	 * @version 1.0
+	 */
+
 public final class AEspionaje extends Agente {
 
 	private String[] vPisos;

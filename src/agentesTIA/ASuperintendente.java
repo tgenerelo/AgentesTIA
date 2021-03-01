@@ -1,5 +1,12 @@
 package agentesTIA;
 
+	/**
+	 * @author Tomás Generelo
+	 * @author Silvia Montañés
+	 * @date 2021-03-01
+	 * @version 1.0
+	 */
+
 public class ASuperintendente extends Agente {
 
 	int anosMandato;
