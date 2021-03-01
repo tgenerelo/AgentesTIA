@@ -3,10 +3,20 @@ package menus;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Esta clase contiene los métodos necesarios para la representación visual de
+ * un menú principal adaptable a la longitud de sus opciones y un método capaz
+ * de generar un submenú similar.
+ * @author Tomás Generelo
+ * @author Silvia Montañés
+ * @date 2021-03-01
+ * @version 1.0
+ */
 public class Menus {
 
 	/**
 	 * Muestra el menú principal y devuelve la opción escogida por el usuario.
+	 * 
 	 * @return Una opción válida escogida por el usuario.
 	 */
 	public static int mostrarMenu() {
@@ -52,24 +62,26 @@ public class Menus {
 
 	/**
 	 * Devuelve la longitud del String más largo en el vector recibido.
+	 * 
 	 * @param vOpciones Vector con las opciones que contiene el menú.
 	 * @return La longitud de la opción más larga.
 	 */
 	private static int calcularAnchoMenu(String[] vOpciones) {
-	
+
 		int ancho = 0;
-	
+
 		for (String opcion : vOpciones) {
 			if (opcion.length() > ancho)
 				ancho = opcion.length();
 		}
-	
+
 		return ancho;
 	}
 
 	/**
 	 * Imprime en pantalla el menú principal.
-	 * @param titulo El título que aparecerá en el menú sobre las opciones.
+	 * 
+	 * @param titulo    El título que aparecerá en el menú sobre las opciones.
 	 * @param vOpciones Un vector que contiene las distintas opciones del menú.
 	 */
 	private static void pintarMenu(String titulo, String vOpciones[]) {
@@ -116,7 +128,7 @@ public class Menus {
 		System.out.println("╝");
 
 		System.out.print("┌");
-		
+
 		for (int i = 0; i < anchoTotal; i++) {
 			System.out.print("─");
 		}
@@ -129,7 +141,7 @@ public class Menus {
 		System.out.println("│ " + vOpciones[3] + " │ " + vOpciones[7] + " │");
 
 		System.out.print("└");
-		
+
 		for (int i = 0; i < anchoTotal; i++) {
 			System.out.print("─");
 		}
@@ -138,7 +150,9 @@ public class Menus {
 	}
 
 	/**
-	 * Imprime por pantalla el contenido de un submenú con una serie de opciones numeradas automáticamente.
+	 * Imprime por pantalla el contenido de un submenú con una serie de opciones
+	 * numeradas automáticamente.
+	 * 
 	 * @param titulo El título que mostrará el submenú.
 	 */
 	public static void pintarSubmenu(String titulo) {

@@ -14,6 +14,13 @@ import java.util.Scanner;
 
 import agentesTIA.Agente;
 
+/**
+ * Esta clase recoge todos los métodos que realizan operaciones de lectura y escritura en disco.
+ * @author Tomás Generelo
+ * @author Silvia Montañés
+ * @date 2021-03-01
+ * @version 1.0
+ */
 public class IODatos {
 
 	/**
