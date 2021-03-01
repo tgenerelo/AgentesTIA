@@ -5,6 +5,13 @@ import agentesTIA.Agente;
 import menus.Menus;
 import menus.Metodos;
 
+/**
+ * Programa de gestión de agentes y recursos de la T.I.A.
+ * @author Tomás Generelo
+ * @author Silvia Montañés
+ * @date 2021-03-01
+ * @version 1.0
+ */
 public class Main {
 
 	public static void main(String[] args) {

@@ -8,6 +8,13 @@ import agentesTIA.AEspionaje;
 import agentesTIA.ASuperintendente;
 import agentesTIA.Agente;
 
+/**
+ * Esta clase contiene los métodos que son invocados desde el menú del programa.
+ * @author Tomás Generelo
+ * @author Silvia Montañés
+ * @date 2021-03-01
+ * @version 1.0
+ */
 public class Metodos {
 	
 	/**
