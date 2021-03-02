@@ -21,10 +21,10 @@ public class Main {
 		
 //		Vector de rutas de ficheros
 		ArrayList<String>vRutas = new ArrayList<String>();
-		vRutas.set(0, (rutaCarpeta + "Agentes.dat"));
-		vRutas.set(1, (rutaCarpeta + "Pisos.txt"));
-		vRutas.set(2, (rutaCarpeta + "Armas.txt"));
-		vRutas.set(3, (rutaCarpeta + "Info.dat"));
+		vRutas.add(0, (rutaCarpeta + "Agentes.dat"));
+		vRutas.add(1, (rutaCarpeta + "Pisos.txt"));
+		vRutas.add(2, (rutaCarpeta + "Armas.txt"));
+		vRutas.add(3, (rutaCarpeta + "Info.dat"));
 		
 		int userInput = 0;
 

@@ -27,7 +27,7 @@ public final class A007 extends Agente {
 	 */
 	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
 		super(nombre, edad, direccion, salario);
-		this.vArmas = IODatos.cargarDatosTexto("Armas.txt");
+		this.vArmas = IODatos.cargarDatosTexto("recursos/Armas.txt");
 		this.muertes = muertes;
 	}
 
@@ -40,11 +40,10 @@ public final class A007 extends Agente {
 		String todasArmas = "";
 		Iterator<String>it=vArmas.iterator();
 	
-		for (int i = 0; i < vArmas.size(); i++) {{
-				todasArmas += vArmas.get(i);
-			}
-		while (it.hasNext())
-			todasArmas += ", ";
+		for (String arma : vArmas) {
+			todasArmas += arma;
+			if (it.hasNext())
+				todasArmas += ", ";
 		}
 		
 		return todasArmas;
