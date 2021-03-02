@@ -37,7 +37,6 @@ public class IODatos {
 	public static ArrayList<String> cargarDatosTexto(String ruta) {
 
 		ArrayList<String>vItems=new ArrayList<>();
-		int cont = 0;
 
 		File f = new File(ruta);
 
@@ -53,7 +52,6 @@ public class IODatos {
 		try (FileReader fr = new FileReader(f); Scanner leer = new Scanner(fr)) {
 			while (leer.hasNext()) {
 				vItems.add(leer.nextLine());
-				cont++;
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("! No se ha encontrado el archivo " + ruta);
@@ -139,7 +137,7 @@ public class IODatos {
 	 * @param vArmas Vector de armas en formato String.
 	 * @param vPisos Vector de pisos en formato String.
 	 */
-	public static void encriptar(String ruta, Agente vAgentes[], String vArmas[], String vPisos[]) {
+	public static void encriptar(String ruta, ArrayList<Agente> vAgentes, ArrayList<String> vArmas, ArrayList<String> vPisos[]) {
 
 		File f = new File(ruta);
 
@@ -152,12 +150,10 @@ public class IODatos {
 		}
 
 		try (FileOutputStream fo = new FileOutputStream(f); ObjectOutputStream escribir = new ObjectOutputStream(fo)) {
-			for (int i = 0; i < vAgentes.length; i++) {
-				if (vAgentes[i] != null) {
+			for (int i = 0; i < vAgentes.size(); i++) {
 					escribir.writeObject(vAgentes);
 					escribir.writeObject(vArmas);
 					escribir.writeObject(vPisos);
-				}
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("! Hubo un error durante la escritura del fichero " + ruta);
@@ -174,12 +170,12 @@ public class IODatos {
 	 * @param vArmas Vector donde se guardarán las armas en formato String.
 	 * @param vPisos Vector donde se guardarán los pisos en formato String.
 	 */
-	public static void desencriptar(String[] vRutas, Agente[] vAgentes, String[] vArmas, String[] vPisos) {
+	public static void desencriptar(ArrayList<String> vRutas, ArrayList<Agente> vAgentes, ArrayList<String> vArmas, ArrayList<String> vPisos) {
 
-		String rutaAgentes = vRutas[0];
-		String rutaPisos = vRutas[1];
-		String rutaArmas = vRutas[2];
-		String rutaCrypt = vRutas[3];
+		String rutaAgentes = vRutas.get(0);
+		String rutaPisos = vRutas.get(1);
+		String rutaArmas = vRutas.get(2);
+		String rutaCrypt = vRutas.get(3);
 
 		File fCrypt = new File(rutaCrypt);
 		File fAgentes = new File(rutaAgentes);
@@ -190,9 +186,9 @@ public class IODatos {
 
 			try (FileInputStream fi = new FileInputStream(rutaCrypt);
 					ObjectInputStream leer = new ObjectInputStream(fi)) {
-				vAgentes = (Agente[]) leer.readObject();
-				vArmas = (String[]) leer.readObject();
-				vPisos = (String[]) leer.readObject();
+				vAgentes = (ArrayList<Agente>) leer.readObject();
+				vArmas = (ArrayList<String>) leer.readObject();
+				vPisos = (ArrayList<String>) leer.readObject();
 
 			} catch (FileNotFoundException e) {
 				System.out.println("! No se ha encontrado el archivo " + fCrypt.getPath());
@@ -205,7 +201,7 @@ public class IODatos {
 			if (!fAgentes.exists()) {
 				try {
 					fAgentes.createNewFile();
-					IODatos.guardarAgentes(vRutas[0], vAgentes);
+					IODatos.guardarAgentes(rutaAgentes, vAgentes);
 				} catch (IOException e) {
 					System.out.println("! Se ha producido un error al crear el archivo " + fAgentes);
 				}
@@ -217,9 +213,7 @@ public class IODatos {
 			try {
 				fArmas.createNewFile();
 				for (String arma : vArmas) {
-					if (arma != null) {
 						IODatos.guardarPisoArma(arma, rutaArmas);
-					}
 				}
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fArmas);
@@ -231,9 +225,7 @@ public class IODatos {
 			try {
 				fPisos.createNewFile();
 				for (String piso : vPisos) {
-					if (piso != null) {
 						IODatos.guardarPisoArma(piso, rutaPisos);
-					}
 				}
 			} catch (IOException e) {
 				System.out.println("! Se ha producido un error al crear el archivo " + fPisos);
