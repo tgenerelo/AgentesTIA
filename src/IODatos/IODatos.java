@@ -55,7 +55,7 @@ public class IODatos {
 
 		try (FileReader fr = new FileReader(f); Scanner leer = new Scanner(fr)) {
 			while (leer.hasNext()) {
-				vItems.add((String) leer.nextLine());
+				vItems.add(leer.nextLine());
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("! No se ha encontrado el archivo " + ruta);

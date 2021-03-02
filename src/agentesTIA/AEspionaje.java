@@ -34,12 +34,10 @@ public final class AEspionaje extends Agente {
 	 */
 	private String todosPisos() {
 		String todosPisos = "";
-	
-		Iterator<String> it = vPisos.iterator();
 		
-		for (String piso : vPisos) {
-			todosPisos += piso;
-			if (it.hasNext())
+		for (int i = 0; i<vPisos.size(); i++) {
+			todosPisos += vPisos.get(i);
+			if (i<vPisos.size()-1)
 				todosPisos += ", ";
 		}
 		

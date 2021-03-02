@@ -38,11 +38,10 @@ public final class A007 extends Agente {
 	private String todasArmas() {
 	
 		String todasArmas = "";
-		Iterator<String>it=vArmas.iterator();
 	
-		for (String arma : vArmas) {
-			todasArmas += arma;
-			if (it.hasNext())
+		for (int i = 0; i<vArmas.size(); i++) {
+			todasArmas += vArmas.get(i);
+			if (i<vArmas.size()-1)
 				todasArmas += ", ";
 		}
 		
