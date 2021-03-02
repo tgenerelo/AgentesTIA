@@ -1,5 +1,8 @@
 package agentesTIA;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import IODatos.IODatos;
 
 	/**
@@ -11,7 +14,7 @@ import IODatos.IODatos;
 
 public final class A007 extends Agente {
 
-	private String[] vArmas;
+	private ArrayList<String>vArmas=new ArrayList<String>();
 	private int muertes;
 
 	/**
@@ -35,13 +38,13 @@ public final class A007 extends Agente {
 	private String todasArmas() {
 	
 		String todasArmas = "";
+		Iterator<String>it=vArmas.iterator();
 	
-		for (int i = 0; i < vArmas.length; i++) {
-			if (vArmas[i] != null) {
-				todasArmas += vArmas[i];
+		for (int i = 0; i < vArmas.size(); i++) {{
+				todasArmas += vArmas.get(i);
 			}
-			if (i < vArmas.length - 1 && vArmas[i + 1] != null)
-				todasArmas += ", ";
+		while (it.hasNext())
+			todasArmas += ", ";
 		}
 		
 		return todasArmas;
@@ -49,12 +52,12 @@ public final class A007 extends Agente {
 
 	
 //	GETTERS Y SETTERS
-	public String[] getArmas() {
+	public ArrayList<String> getArmas() {
 		return vArmas;
 	}
 
-	public void setArmas(String[] armas) {
-		this.vArmas = armas;
+	public void setArmas(ArrayList<String> vArmas) {
+		this.vArmas = vArmas;
 	}
 
 	public int getMuertes() {
