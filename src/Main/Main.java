@@ -1,4 +1,6 @@
 package Main;
+import java.util.ArrayList;
+
 import IODatos.IODatos;
 import agentesTIA.Agente;
 import menus.Menus;
@@ -18,20 +20,20 @@ public class Main {
 		String rutaCarpeta = "recursos/";
 		
 //		Vector de rutas de ficheros
-		String[] vRutas = new String[4];
-		vRutas[0] = rutaCarpeta + "Agentes.dat";
-		vRutas[1] = rutaCarpeta + "Pisos.txt";
-		vRutas[2] = rutaCarpeta + "Armas.txt";
-		vRutas[3] = rutaCarpeta + "Info.dat";
+		ArrayList<String>vRutas = new ArrayList<String>();
+		vRutas.set(0, (rutaCarpeta + "Agentes.dat"));
+		vRutas.set(1, (rutaCarpeta + "Pisos.txt"));
+		vRutas.set(2, (rutaCarpeta + "Armas.txt"));
+		vRutas.set(3, (rutaCarpeta + "Info.dat"));
 		
 		int userInput = 0;
 
 		do {
 			
 //			Vectores vAgentes, vPisos y vArmas
-			Agente[] vAgentes = IODatos.cargarAgentes(vRutas[0]);
-			String[] vPisos = IODatos.cargarDatosTexto(vRutas[1]);
-			String[] vArmas = IODatos.cargarDatosTexto(vRutas[2]);
+			ArrayList<Agente> vAgentes = IODatos.cargarAgentes(vRutas.get(0));
+			ArrayList<String> vPisos = IODatos.cargarDatosTexto(vRutas.get(1));
+			ArrayList<String> vArmas = IODatos.cargarDatosTexto(vRutas.get(2));
 			
 //			MENÚ PRINCIPAL
 			userInput = Menus.mostrarMenu();
@@ -50,24 +52,24 @@ public class Main {
 				
 //			MENÚ PRINCIPAL > AÑADIR NUEVO PISO
 			case 3:
-				Metodos.nuevaArmasoPiso(vRutas[1]);
-				vPisos = IODatos.cargarDatosTexto(vRutas[1]);
+				Metodos.nuevaArmasoPiso(vRutas.get(1));
+				vPisos = IODatos.cargarDatosTexto(vRutas.get(1));
 				break;
 				
 //			MENÚ PRINCIPAL > AÑADIR NUEVA ARMA
 			case 4:
-				Metodos.nuevaArmasoPiso(vRutas[2]);
-				vArmas = IODatos.cargarDatosTexto(vRutas[2]);
+				Metodos.nuevaArmasoPiso(vRutas.get(2));
+				vArmas = IODatos.cargarDatosTexto(vRutas.get(2));
 				break;
 				
 //			MENÚ PRINCIPAL > DAR DE ALTA NUEVO AGENTE
 			case 5:
-				vAgentes = Metodos.nuevoAgente(vAgentes, vRutas[0]);
+				vAgentes = Metodos.nuevoAgente(vAgentes, vRutas.get(0));
 				break;
 				
 //			MENÚ PRINCIPAL > ENCRIPTAR TODA LA INFORMACIÓN
 			case 6:
-				IODatos.encriptar(vRutas[3], vAgentes, vArmas, vPisos);
+				IODatos.encriptar(vRutas.get(3), vAgentes, vArmas, vPisos);
 				break;
 				
 //			MENÚ PRINCIPAL > DESENCRIPTAR TODA LA INFORMACIÓN
