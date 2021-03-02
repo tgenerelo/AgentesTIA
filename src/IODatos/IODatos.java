@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import agentesTIA.Agente;
@@ -33,9 +34,9 @@ public class IODatos {
 	 * @param ruta El fichero de donde se cargará la información.
 	 * @return Devuelve un vector de String.
 	 */
-	public static String[] cargarDatosTexto(String ruta) {
+	public static ArrayList<String> cargarDatosTexto(String ruta) {
 
-		String vItems[] = new String[20];
+		ArrayList<String>vItems=new ArrayList<>();
 		int cont = 0;
 
 		File f = new File(ruta);
@@ -51,7 +52,7 @@ public class IODatos {
 
 		try (FileReader fr = new FileReader(f); Scanner leer = new Scanner(fr)) {
 			while (leer.hasNext()) {
-				vItems[cont] = leer.nextLine();
+				vItems.add(leer.nextLine());
 				cont++;
 			}
 		} catch (FileNotFoundException e) {
@@ -91,17 +92,15 @@ public class IODatos {
 	 * @param ruta La ruta del archivo.
 	 * @return Devuelve un vector de Agente[].
 	 */
-	public static Agente[] cargarAgentes(String ruta) {
+	public static ArrayList<Agente> cargarAgentes(String ruta) {
 
 		File f = new File(ruta);
-		Agente[] vAgentes = new Agente[20];
-		int cont = 0;
+		ArrayList<Agente> vAgentes=new ArrayList<>();
 
 		if (f.exists()) {
 			try (FileInputStream fi = new FileInputStream(f); ObjectInputStream leer = new ObjectInputStream(fi)) {
 				while (true) {
-					vAgentes[cont] = (Agente) leer.readObject();
-					cont++;
+					vAgentes.add((Agente) leer.readObject());
 				}
 			} catch (Exception e) {
 			}
@@ -115,7 +114,7 @@ public class IODatos {
 	 * @param ruta La ruta del archivo donde se guardarán los datos.
 	 * @param vAgentes El vector con los objetos de tipo Agente que se quieren guardar.
 	 */
-	public static void guardarAgentes(String ruta, Agente[] vAgentes) {
+	public static void guardarAgentes(String ruta, ArrayList<Agente> vAgentes) {
 		File f = new File(ruta);
 
 		if (!f.exists())
