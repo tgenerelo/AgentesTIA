@@ -1,5 +1,6 @@
 package menus;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import IODatos.IODatos;
@@ -26,10 +27,9 @@ public class Metodos {
 	 * Muestra la información de todos los agentes contenidos en el vector que recibe.
 	 * @param vAgentes El vector con los datos de tipo Agente.
 	 */
-	public static void mostrarAgentes(Agente[] vAgentes) {
+	public static void mostrarAgentes(ArrayList<Agente> vAgentes) {
 
 		for (Agente agente : vAgentes) {
-			if (agente != null)
 				System.out.println(agente.toString() + "\n");
 		}
 		
@@ -40,16 +40,16 @@ public class Metodos {
 	 * Pide al usuario una cantidad y muestra la información de todos los agentes cuyo salario es mayor.
 	 * @param vAgente El vector con los datos de tipo Agente.
 	 */
-	public static void salarioAgentes(Agente vAgente[]) {
+	public static void salarioAgentes(ArrayList<Agente> vAgente) {
 
 		System.out.print("  Introduce el salario mínimo que deseas buscar: > ");
 		Scanner leer = new Scanner(System.in);
 		float cantidad = leer.nextInt();
 		int cont = 0;
 
-		for (int i = 0; i < vAgente.length; i++) {
-			if ((vAgente[i] != null) && (cantidad <= vAgente[i].getSalario())) {
-				System.out.println(vAgente[i] + "\n");
+		for (int i = 0; i < vAgente.size(); i++) {
+			if (cantidad <= vAgente.get(i).getSalario()) {
+				System.out.println(vAgente + "\n");
 				cont++;
 			}
 		}
@@ -328,7 +328,8 @@ public class Metodos {
 	 * @param vAgentes El vector donde se buscará un hueco libre.
 	 * @return La primera posición libre. Si no hay ninguna, devolverá el valor -1.
 	 */
-	private static int encontrarHuecoVector(Agente[] vAgentes) {
+	
+	/*private static int encontrarHuecoVector(Agente[] vAgentes) {
 
 		for (int i = 0; i < vAgentes.length; i++) {
 			if (vAgentes[i] == null) {
@@ -337,6 +338,6 @@ public class Metodos {
 		}
 
 		return -1;
-	}
+	}*/
 
 }
