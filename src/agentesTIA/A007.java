@@ -1,5 +1,8 @@
 package agentesTIA;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import IODatos.IODatos;
 
 	/**
@@ -11,7 +14,7 @@ import IODatos.IODatos;
 
 public final class A007 extends Agente {
 
-	private String[] vArmas;
+	private ArrayList<String>vArmas=new ArrayList<String>();
 	private int muertes;
 
 	/**
@@ -24,7 +27,7 @@ public final class A007 extends Agente {
 	 */
 	public A007(String nombre, int edad, String direccion, float salario, int muertes) {
 		super(nombre, edad, direccion, salario);
-		this.vArmas = IODatos.cargarDatosTexto("Armas.txt");
+		this.vArmas = IODatos.cargarDatosTexto("recursos/Armas.txt");
 		this.muertes = muertes;
 	}
 
@@ -36,11 +39,9 @@ public final class A007 extends Agente {
 	
 		String todasArmas = "";
 	
-		for (int i = 0; i < vArmas.length; i++) {
-			if (vArmas[i] != null) {
-				todasArmas += vArmas[i];
-			}
-			if (i < vArmas.length - 1 && vArmas[i + 1] != null)
+		for (int i = 0; i<vArmas.size(); i++) {
+			todasArmas += vArmas.get(i);
+			if (i<vArmas.size()-1)
 				todasArmas += ", ";
 		}
 		
@@ -49,12 +50,12 @@ public final class A007 extends Agente {
 
 	
 //	GETTERS Y SETTERS
-	public String[] getArmas() {
+	public ArrayList<String> getArmas() {
 		return vArmas;
 	}
 
-	public void setArmas(String[] armas) {
-		this.vArmas = armas;
+	public void setArmas(ArrayList<String> vArmas) {
+		this.vArmas = vArmas;
 	}
 
 	public int getMuertes() {

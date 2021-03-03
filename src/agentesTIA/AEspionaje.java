@@ -1,5 +1,7 @@
 package agentesTIA;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import IODatos.IODatos;
 
 	/**
@@ -11,7 +13,7 @@ import IODatos.IODatos;
 
 public final class AEspionaje extends Agente {
 
-	private String[] vPisos;
+	private ArrayList<String> vPisos = new ArrayList<String>();
 	
 	/**
 	 * Instancia un objeto de clase AEspionaje con los datos especificados. vPisos se rellena automáticamente con la información del fichero correspondiente.
@@ -20,9 +22,10 @@ public final class AEspionaje extends Agente {
 	 * @param direccion La dirección postal del agente.
 	 * @param salario El salario que cobra el agente.
 	 */
+	
 	public AEspionaje(String nombre, int edad, String direccion, float salario) {
 		super(nombre, edad, direccion, salario);
-		this.vPisos = IODatos.cargarDatosTexto("Pisos.txt");
+		this.vPisos = IODatos.cargarDatosTexto("recursos/Pisos.txt");
 	}
 
 	/**
@@ -31,28 +34,33 @@ public final class AEspionaje extends Agente {
 	 */
 	private String todosPisos() {
 		String todosPisos = "";
-	
-		for (int i = 0; i < vPisos.length; i++) {
-			if (vPisos[i] != null) {
-				todosPisos += vPisos[i];
-			}
-			if (i < vPisos.length - 1 && vPisos[i + 1] != null)
+		
+		for (int i = 0; i<vPisos.size(); i++) {
+			todosPisos += vPisos.get(i);
+			if (i<vPisos.size()-1)
 				todosPisos += ", ";
 		}
+		
+
+					
+//		while (it.hasNext()) {
+//			todosPisos += ", ";				
+//		}
 	
 		return todosPisos;
 	}
 
 	
 //	GETTERS Y SETTERS
-	public String[] getPisos() {
+
+	public ArrayList<String> getvPisos() {
 		return vPisos;
 	}
 
-	public void setPisos(String[] pisos) {
-		this.vPisos = pisos;
+	public void setvPisos(ArrayList<String> vPisos) {
+		this.vPisos = vPisos;
 	}
-
+	
 	@Override
 	public String toString() {
 		return super.toString() + "\n  Pisos: ".toUpperCase() + todosPisos();
