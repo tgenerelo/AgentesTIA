@@ -33,7 +33,7 @@ public class Metodos {
 	public static void mostrarAgentes(ArrayList<Agente> vAgentes) {
 
 		for (Agente agente : vAgentes) {
-				System.out.println(agente.toString() + "\n");
+			System.out.println(agente.toString() + "\n");
 		}
 
 		System.out.println(mensajeFinOperacion);
@@ -103,7 +103,7 @@ public class Metodos {
 	public static ArrayList<Agente> nuevoAgente(ArrayList<Agente> vAgentes, String ruta) {
 
 		Scanner leerInput = new Scanner(System.in);
-		int userInputInt = 0, pos = 0;
+		int userInputInt = 0;
 		boolean error = false;
 		String nombreAgente = "", dirAgente = "";
 		int edadAgente = 0;
@@ -184,14 +184,6 @@ public class Metodos {
 			} while (error == true);
 
 			vAgentes.add(new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente));
-			
-//			pos = encontrarHuecoVector(vAgentes);
-//
-//			if (pos != -1) {
-//				vAgentes.set(pos) = new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente);
-//			} else {
-//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-//			}
 
 			break;
 
@@ -253,14 +245,6 @@ public class Metodos {
 			} while (error == true);
 
 			vAgentes.add(new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente));
-			
-//			pos = encontrarHuecoVector(vAgentes);
-//
-//			if (pos != -1) {
-//				vAgentes[pos] = new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente);
-//			} else {
-//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-//			}
 
 			break;
 
@@ -319,16 +303,8 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
-			
-			vAgentes.add(new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato));
 
-//			pos = encontrarHuecoVector(vAgentes);
-//
-//			if (pos != -1) {
-//				vAgentes[pos] = new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato);
-//			} else {
-//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-//			}
+			vAgentes.add(new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato));
 
 			break;
 		}
@@ -338,22 +314,5 @@ public class Metodos {
 		return vAgentes;
 
 	}
-
-	/**
-	 * Busca el primer hueco libre en el vector indicado y devuelve su posición.
-	 * @param vAgentes El vector donde se buscará un hueco libre.
-	 * @return La primera posición libre. Si no hay ninguna, devolverá el valor -1.
-	 */
-	
-	/*private static int encontrarHuecoVector(Agente[] vAgentes) {
-
-		for (int i = 0; i < vAgentes.length; i++) {
-			if (vAgentes[i] == null) {
-				return i;
-			}
-		}
-
-		return -1;
-	}*/
 
 }
