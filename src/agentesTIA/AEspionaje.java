@@ -8,7 +8,7 @@ import IODatos.IODatos;
 	 * @author Tomás Generelo
 	 * @author Silvia Montañés
 	 * @date 2021-03-01
-	 * @version 1.0
+	 * @version 1.1
 	 */
 
 public final class AEspionaje extends Agente {
