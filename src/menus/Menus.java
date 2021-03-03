@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Tomás Generelo
  * @author Silvia Montañés
  * @date 2021-03-01
- * @version 1.1
+ * @version 1.2
  */
 public class Menus {
 
