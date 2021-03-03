@@ -11,20 +11,23 @@ import agentesTIA.Agente;
 
 /**
  * Esta clase contiene los métodos que son invocados desde el menú del programa.
+ * 
  * @author Tomás Generelo
  * @author Silvia Montañés
  * @date 2021-03-01
  * @version 1.0
  */
 public class Metodos {
-	
+
 	/**
 	 * El mensaje que se mostrará al terminar la ejecución de cada método.
 	 */
 	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
 	/**
-	 * Muestra la información de todos los agentes contenidos en el vector que recibe.
+	 * Muestra la información de todos los agentes contenidos en el vector que
+	 * recibe.
+	 * 
 	 * @param vAgentes El vector con los datos de tipo Agente.
 	 */
 	public static void mostrarAgentes(ArrayList<Agente> vAgentes) {
@@ -32,12 +35,14 @@ public class Metodos {
 		for (Agente agente : vAgentes) {
 				System.out.println(agente.toString() + "\n");
 		}
-		
+
 		System.out.println(mensajeFinOperacion);
 	}
 
 	/**
-	 * Pide al usuario una cantidad y muestra la información de todos los agentes cuyo salario es mayor.
+	 * Pide al usuario una cantidad y muestra la información de todos los agentes
+	 * cuyo salario es mayor.
+	 * 
 	 * @param vAgente El vector con los datos de tipo Agente.
 	 */
 	public static void salarioAgentes(ArrayList<Agente> vAgente) {
@@ -57,40 +62,45 @@ public class Metodos {
 		if (cont == 0) {
 			System.out.println("\n  No se han encontrado resultados.");
 		}
-		
+
 		System.out.println(mensajeFinOperacion);
 	}
 
 	/**
-	 * Pide al usuario un arma o piso en formato String que se añadirá a un fichero en la ruta especificada.
+	 * Pide al usuario un arma o piso en formato String que se añadirá a un fichero
+	 * en la ruta especificada.
+	 * 
 	 * @param ruta Ruta del fichero donde se guardará la información.
 	 */
 	public static void nuevaArmasoPiso(String ruta) {
 
-		Scanner leer=new Scanner(System.in);
+		Scanner leer = new Scanner(System.in);
 		String dato;
 
-		if (ruta.equalsIgnoreCase("ficheros/Pisos.txt")) {
+		if (ruta.equalsIgnoreCase("recursos/Pisos.txt")) {
 			System.out.print("  Introduce el nombre del nuevo piso: > ");
 		} else {
 			System.out.print("  Introduce el nombre de la nueva arma: > ");
 		}
 
 		dato = leer.nextLine();
-		
+
 		IODatos.guardarPisoArma(dato, ruta);
-		
+
 		System.out.println(mensajeFinOperacion);
-		
-		}
-	
+
+	}
+
 	/**
-	 * Permite al usuario crear un nuevo objeto de cualquiera de las subclases de Agente. El nuevo objeto se añadirá al vector recibido y a un archivo en la ruta especificada.
+	 * Permite al usuario crear un nuevo objeto de cualquiera de las subclases de
+	 * Agente. El nuevo objeto se añadirá al vector recibido y a un archivo en la
+	 * ruta especificada.
+	 * 
 	 * @param vAgentes El vector donde se guardará el nuevo objeto.
-	 * @param ruta La ruta donde se guardará el nuevo objeto.
+	 * @param ruta     La ruta donde se guardará el nuevo objeto.
 	 * @return El vector de Agentes actualizado con el nuevo objeto.
 	 */
-	public static Agente[] nuevoAgente(Agente[] vAgentes, String ruta) {
+	public static ArrayList<Agente> nuevoAgente(ArrayList<Agente> vAgentes, String ruta) {
 
 		Scanner leerInput = new Scanner(System.in);
 		int userInputInt = 0, pos = 0;
@@ -173,13 +183,15 @@ public class Metodos {
 				}
 			} while (error == true);
 
-			pos = encontrarHuecoVector(vAgentes);
-
-			if (pos != -1) {
-				vAgentes[pos] = new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente);
-			} else {
-				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-			}
+			vAgentes.add(new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente));
+			
+//			pos = encontrarHuecoVector(vAgentes);
+//
+//			if (pos != -1) {
+//				vAgentes.set(pos) = new AEspionaje(nombreAgente, edadAgente, dirAgente, salarioAgente);
+//			} else {
+//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
+//			}
 
 			break;
 
@@ -240,13 +252,15 @@ public class Metodos {
 				}
 			} while (error == true);
 
-			pos = encontrarHuecoVector(vAgentes);
-
-			if (pos != -1) {
-				vAgentes[pos] = new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente);
-			} else {
-				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-			}
+			vAgentes.add(new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente));
+			
+//			pos = encontrarHuecoVector(vAgentes);
+//
+//			if (pos != -1) {
+//				vAgentes[pos] = new A007(nombreAgente, edadAgente, dirAgente, salarioAgente, muertesAgente);
+//			} else {
+//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
+//			}
 
 			break;
 
@@ -305,14 +319,16 @@ public class Metodos {
 					error = true;
 				}
 			} while (error == true);
+			
+			vAgentes.add(new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato));
 
-			pos = encontrarHuecoVector(vAgentes);
-
-			if (pos != -1) {
-				vAgentes[pos] = new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato);
-			} else {
-				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
-			}
+//			pos = encontrarHuecoVector(vAgentes);
+//
+//			if (pos != -1) {
+//				vAgentes[pos] = new ASuperintendente(nombreAgente, edadAgente, dirAgente, salarioAgente, anosMandato);
+//			} else {
+//				System.out.println("  Error al dar de alta el agente. No hay huecos libres.");
+//			}
 
 			break;
 		}
