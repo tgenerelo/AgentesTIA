@@ -1,7 +1,6 @@
-Rifle
-Pistola
-Escopeta
-Bazooka
-Ametralladora
-Fusil
-Granadas
+Pistola soporífera
+Sulfato atómico
+Granada magnética
+Cañón "Servando"
+Mechero lanzallamas
+Rayo perforador
