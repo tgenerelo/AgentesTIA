@@ -25,7 +25,7 @@ public class Menus {
 		int userInput = 0;
 		boolean error = false;
 
-		String titulo = "MENÚ PRINCIPAL";
+		String titulo = "o.s.T.I.A. v1.1 - MENÚ PRINCIPAL";
 		String[] vOpciones = { "1. Ver todos los agentes", "2. Ver agentes según sueldo", "3. Dar de alta nuevo piso",
 				"4. Dar de alta nueva arma", "5. Dar de alta nuevo agente", "6. Encriptar todo", "7. Desencriptar todo",
 				"8. Salir" };

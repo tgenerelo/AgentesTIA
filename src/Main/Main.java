@@ -79,7 +79,7 @@ public class Main {
 			}
 		} while (userInput != 8);
 
-		System.out.println("  El programa se cerrará.");
+		Metodos.autodestruccion();
 		
 	}
 

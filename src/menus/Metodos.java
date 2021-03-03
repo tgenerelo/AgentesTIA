@@ -314,5 +314,19 @@ public class Metodos {
 		return vAgentes;
 
 	}
+	
+	public static void autodestruccion() {
+		System.out.print("  Gracias por utilizar Operative System T.I.A. v1.1. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
+
+		for (int i =10; i>0; i--) {
+			System.out.print(i + " ");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
+			if (i<3/*Francisco Ibáñez*/)
+				i++;
+		}
+	}
 
 }
