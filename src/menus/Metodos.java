@@ -15,26 +15,19 @@ import agentesTIA.Agente;
  * @author Tomás Generelo
  * @author Silvia Montañés
  * @date 2021-03-01
- * @version 1.2
+ * @version 1.3
  */
 public class Metodos {
 
 	/**
-	 * El mensaje que se mostrará al terminar la ejecución de cada método.
-	 */
-	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
-
-	/**
-	 * Muestra la información de todos los agentes contenidos en el vector que
-	 * recibe.
+	 * Opción del menú principal para mostrar por pantalla la información de todos
+	 * los agentes contenidos en el vector que recibe.
 	 * 
-	 * @param vAgentes El vector con los datos de tipo Agente.
+	 * @param vAgentes El vector con los datos de tipo agente.
 	 */
 	public static void mostrarAgentes(ArrayList<Agente> vAgentes) {
 
-		for (Agente agente : vAgentes) {
-			System.out.println(agente.toString() + "\n");
-		}
+		imprimirAgentes(vAgentes);
 
 		System.out.println(mensajeFinOperacion);
 	}
@@ -47,20 +40,38 @@ public class Metodos {
 	 */
 	public static void salarioAgentes(ArrayList<Agente> vAgente) {
 
-		System.out.print("  Introduce el salario mínimo que deseas buscar: > ");
-		Scanner leer = new Scanner(System.in);
-		float cantidad = leer.nextInt();
-		int cont = 0;
+		boolean error = false;
+		float cantidad = 0f;
 
-		for (int i = 0; i < vAgente.size(); i++) {
-			if (cantidad <= vAgente.get(i).getSalario()) {
-				System.out.println(vAgente + "\n");
-				cont++;
+		do {
+			error = false;
+			System.out.print("  Introduce el salario mínimo que deseas buscar: > ");
+			Scanner leer = new Scanner(System.in);
+
+			try {
+				cantidad = leer.nextFloat();
+			} catch (InputMismatchException e) {
+				System.out.println("  Cantidad no válida. Inténtalo de nuevo.");
+				leer = new Scanner(System.in);
+				error = true;
+			}
+
+			System.out.println();
+
+		} while (error == true);
+
+		ArrayList<Agente> agentesSueldo = new ArrayList<Agente>();
+
+		for (Agente agente : vAgente) {
+			if (agente.getSalario() >= cantidad) {
+				agentesSueldo.add(agente);
 			}
 		}
 
-		if (cont == 0) {
-			System.out.println("\n  No se han encontrado resultados.");
+		if (agentesSueldo.size() == 0) {
+			System.out.println("  No se han encontrado resultados.");
+		} else {
+			imprimirAgentes(agentesSueldo);
 		}
 
 		System.out.println(mensajeFinOperacion);
@@ -314,17 +325,37 @@ public class Metodos {
 		return vAgentes;
 
 	}
-	
-	public static void autodestruccion() {
-		System.out.print("  Gracias por utilizar Operative System T.I.A. v1.1. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
 
-		for (int i =10; i>0; i--) {
+	/**
+	 * El mensaje que se mostrará al terminar la ejecución de cada método.
+	 */
+	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
+
+	/**
+	 * Imprime por pantalla la información de todos los agentes contenidos en el
+	 * vector que recibe.
+	 * 
+	 * @param vAgentes El vector con los datos de tipo Agente.
+	 */
+	private static void imprimirAgentes(ArrayList<Agente> vAgentes) {
+
+		for (Agente agente : vAgentes) {
+			System.out.println(agente.toString() + "\n");
+		}
+
+	}
+
+	public static void autodestruccion() {
+		System.out.print(
+				"  Gracias por utilizar Operative System T.I.A. v1.1. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
+
+		for (int i = 10; i > 0; i--) {
 			System.out.print(i + " ");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 			}
-			if (i<3/*Francisco Ibáñez*/)
+			if (i < 3/* Francisco Ibáñez */)
 				i++;
 		}
 	}

@@ -11,7 +11,7 @@ import menus.Metodos;
  * @author Tomás Generelo
  * @author Silvia Montañés
  * @date 2021-03-01
- * @version 1.2
+ * @version 1.3
  */
 public class Main {
 
