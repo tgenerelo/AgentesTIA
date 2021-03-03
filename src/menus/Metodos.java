@@ -347,16 +347,16 @@ public class Metodos {
 
 	public static void autodestruccion() {
 		System.out.print(
-				"  Gracias por utilizar Operative System T.I.A. v1.1. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
+				"  Gracias por utilizar Operative System T.I.A. v1.3. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
 
-		for (int i = 10; i > 0; i--) {
-			System.out.print(i + " ");
+		for (int I = 10; I > 0; I--) {
+			System.out.print(I + " ");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 			}
-			if (i < 3/* Francisco Ibáñez */)
-				i++;
+			if (I <3/* Francisco Ibáñez */)
+				I++;
 		}
 	}
 
