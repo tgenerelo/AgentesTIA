@@ -18,7 +18,9 @@ import agentesTIA.Agente;
  * @version 1.3
  */
 public class Metodos {
-
+	
+	private static final String MENSAJEFINOPERACION = "\n  La operación se ha completado. Volviendo al menú principal.\n";
+	
 	/**
 	 * Opción del menú principal para mostrar por pantalla la información de todos
 	 * los agentes contenidos en el vector que recibe.
@@ -29,7 +31,7 @@ public class Metodos {
 
 		imprimirAgentes(vAgentes);
 
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 	}
 
 	/**
@@ -74,7 +76,7 @@ public class Metodos {
 			imprimirAgentes(agentesSueldo);
 		}
 
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 	}
 
 	/**
@@ -98,7 +100,7 @@ public class Metodos {
 
 		IODatos.guardarPisoArma(dato, ruta);
 
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 
 	}
 
@@ -321,15 +323,10 @@ public class Metodos {
 		}
 
 		IODatos.guardarAgentes(ruta, vAgentes);
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 		return vAgentes;
 
 	}
-
-	/**
-	 * El mensaje que se mostrará al terminar la ejecución de cada método.
-	 */
-	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
 	/**
 	 * Imprime por pantalla la información de todos los agentes contenidos en el
@@ -363,5 +360,4 @@ public class Metodos {
 				I++;
 		}
 	}
-
 }
