@@ -345,6 +345,10 @@ public class Metodos {
 
 	}
 
+	/**
+	 * Genera una cuenta atrás que, al alcanzar el 0,
+	 * autodestruye el programa en una explosión de lo más burro.
+	 */
 	public static void autodestruccion() {
 		System.out.print(
 				"  Gracias por utilizar Operative System T.I.A. v1.3. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
@@ -355,7 +359,7 @@ public class Metodos {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 			}
-			if (I <3/* Francisco Ibáñez */)
+			if (I <3 /* Francisco Ibáñez */)
 				I++;
 		}
 	}
