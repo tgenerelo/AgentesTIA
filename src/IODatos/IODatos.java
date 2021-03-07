@@ -29,7 +29,7 @@ public class IODatos {
 	/**
 	 * El mensaje que se mostrará al terminar la ejecución de cada método.
 	 */
-	private static String mensajeFinOperacion = "\n  La operación se ha completado. Volviendo al menú principal.\n";
+	private static final String MENSAJEFINOPERACION = "\n  La operación se ha completado. Volviendo al menú principal.\n";
 
 	/**
 	 * Carga todas las líneas del fichero especificado y las devuelve en forma de
@@ -173,7 +173,7 @@ public class IODatos {
 		} catch (IOException e) {
 		}
 
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 	}
 
 	/**
@@ -247,7 +247,7 @@ public class IODatos {
 			}
 		}
 
-		System.out.println(mensajeFinOperacion);
+		System.out.println(MENSAJEFINOPERACION);
 	}
 
 }
