@@ -44,15 +44,6 @@ public class IODatos {
 
 		File f = new File(ruta);
 
-		if (!f.exists()) {
-
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				System.out.println("! Hubo un error durante la creación del fichero " + ruta);
-			}
-		}
-
 		try (FileReader fr = new FileReader(f); Scanner leer = new Scanner(fr)) {
 			while (leer.hasNext()) {
 				vItems.add(leer.nextLine());
@@ -153,6 +144,7 @@ public class IODatos {
 			ArrayList<String> vPisos) {
 
 		File f = new File(ruta);
+		
 
 		if (!f.exists()) {
 			try {
@@ -172,8 +164,22 @@ public class IODatos {
 			System.out.println("! Hubo un error durante la escritura del fichero " + ruta);
 		} catch (IOException e) {
 		}
+		
+		borrarFicheros("recursos", ".txt");
+		
 
 		System.out.println(MENSAJEFINOPERACION);
+	}
+
+	private static void borrarFicheros(String ruta, String extension) {
+		
+		File dir = new File(ruta);
+		File[] ficheros;
+		ficheros=dir.listFiles();
+		for (File f : ficheros) {
+			if (f.getName().substring(f.getName().length()-extension.length(), f.getName().length()).equalsIgnoreCase(extension))
+				f.delete();
+		}
 	}
 
 	/**
