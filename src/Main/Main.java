@@ -10,8 +10,8 @@ import menus.Metodos;
  * Programa de gestión de agentes y recursos de la T.I.A.
  * @author Tomás Generelo
  * @author Silvia Montañés
- * @date 2021-03-01
- * @version 1.3
+ * @date 2021-03-08
+ * @version 2.0
  */
 public class Main {
 

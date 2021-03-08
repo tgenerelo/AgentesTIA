@@ -348,7 +348,7 @@ public class Metodos {
 	 */
 	public static void autodestruccion() {
 		System.out.print(
-				"  Gracias por utilizar Operative System T.I.A. v1.3. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
+				"  Gracias por utilizar Operative System T.I.A. v2.0. by Saturnino Bacterio.\n  El programa se cerrará ahora y se autodestruirá en ");
 
 		for (int I = 10; I > 0; I--) {
 			System.out.print(I + " ");
