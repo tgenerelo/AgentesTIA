@@ -12,6 +12,7 @@ class TestIODatos {
 
 	ArrayList<String> vArmas = new ArrayList<String>();
 	
+	
 	@BeforeEach
 	void test() {
 		vArmas.clear();
@@ -24,23 +25,23 @@ class TestIODatos {
 	}
 	
 	@Test
-	void testCargarArmas() throws Exception {
+	void testCargarArmas() {
 		assertEquals(vArmas, IODatos.cargarDatosTexto("recursos/Armas.txt"));
 	}
 	
 	@Test
-	void testCargarArmasErrorVector() throws Exception {
+	void testCargarArmasErrorVector() {
 		vArmas.add("Nueva arma");
 		assertNotEquals(vArmas, IODatos.cargarDatosTexto("recursos/Armas.txt"));
 	}
 	
 	@Test
-	void testCargarArmasErrorFichero() throws Exception {
+	void testCargarArmasErrorFichero() {
 		assertNotEquals(vArmas, IODatos.cargarDatosTexto("recursos/Pisos.txt"));
 	}
 	
 	@Test
-	void testExcepcionLectura() throws Exception {
+	void testExcepcionLectura() {
 		try {
 			IODatos.cargarDatosTexto("con.txt");
 		} catch (Exception e) {
